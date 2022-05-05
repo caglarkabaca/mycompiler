@@ -159,5 +159,26 @@ void compile(Tokenlist tokenlist)
                 *(int *)varlist.vars[index].ptr  = *(int *)a.ptr /  *(int *)b.ptr;
         }
 
+        if (check(name, "GETINT"))
+        {
+            Var toset = vars[0];
+
+            int index = check_varlist(varlist, toset);
+
+            if (index == -1)
+            {
+                index = varlist.var_count;
+                varlist.var_count++;
+                varlist.vars = (Var *)realloc(varlist.vars, sizeof(Var) * varlist.var_count);
+                varlist.vars[index].called = (char *)calloc(1, sizeof(char)* strlen(toset.called));
+                strcpy(varlist.vars[index].called, toset.called);
+                varlist.vars[index].type = INT;
+                varlist.vars[index].ptr = (void *)malloc(sizeof(int *));
+            }
+            int * number = (int *)malloc(sizeof(int));
+            free(number);
+            scanf(" %d", number);
+            *(int *)varlist.vars[index].ptr = *number;
+        }
     }
 }
