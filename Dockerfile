@@ -7,5 +7,5 @@ RUN apt-get update && \
 COPY . /Users/caglar/mycompiler
 WORKDIR /Users/caglar/mycompiler
 
-RUN gcc -o mycompiler main.c parser.c
+RUN gcc -o mycompiler main.c parser.c compiler.c
 CMD ["./mycompiler", "--compile", "./test.mc"]

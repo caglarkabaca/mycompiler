@@ -1,6 +1,11 @@
 #ifndef STRUCTS_H
 #define STRUCTS_H
 
+#define COMMENT_CHAR '!'
+#define STRING_CHAR '"'
+#define NUMBER_CHAR '#'
+#define VAR_CHAR '$'
+
 #define INT 1
 #define STRING 2
 
@@ -14,7 +19,6 @@ struct Var
     int type;
 };
 typedef struct Var Var;
-
 
 struct Token
 {

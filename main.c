@@ -4,9 +4,11 @@
 
 #include "./include/structs.h"
 #include "./include/parser.h"
+#include "./include/compiler.h"
 
 void print_tokenlist(Tokenlist tokenlist)
-{
+{   
+    printf("-- tokenlist --\n");
     for (int i = 0; i < tokenlist.token_count; i++)
     {
         printf("%d token name: %s", tokenlist.tokens[i].var_count, tokenlist.tokens[i].name);
@@ -40,6 +42,9 @@ int main(int argc, char** argv)
 
         Tokenlist tokenlist = parser(file);
         print_tokenlist(tokenlist);
+
+        printf("-- output --\n");
+        compile(tokenlist);
 
     }
     return 0;

@@ -37,14 +37,14 @@ Tokenlist parser(const char * file)
         int string_reading = 0;
         while ( (file[file_index] != ' ' || string_reading) && file[file_index] != '\n' && file[file_index] != '\0')
         {
-            if (file[file_index] == '!' && !string_reading)
+            if (file[file_index] == COMMENT_CHAR && !string_reading)
             {
                 while(file[file_index] != '\n' && file[file_index] != '\0')
                     file_index++;
                 continue;
             }
 
-            if (file[file_index] == '"')
+            if (file[file_index] == STRING_CHAR)
                 string_reading = !string_reading;
 
             buff[buff_index] = file[file_index];
@@ -56,13 +56,13 @@ Tokenlist parser(const char * file)
         char * word = (char *)calloc(1, sizeof(char) * (buff_index + 1));
         strcat(word, buff);
         file_index++;
-        
+
         if (strlen(word) < 1)
             continue;
 
         switch(word[0]) // ilk karakter
         {
-            case '"': ;
+            case STRING_CHAR: ;
                 word = word + 1;
                 word[buff_index - 2] = '\0'; 
                 tokenlist.tokens[tokenlist.token_count - 1].var_count++;
@@ -74,7 +74,7 @@ Tokenlist parser(const char * file)
                 var_count++;
                 break;
 
-            case '$': ;
+            case VAR_CHAR: ;
                 word = word + 1;
                 tokenlist.tokens[tokenlist.token_count - 1].var_count++;
                 tokenlist.tokens[tokenlist.token_count - 1].vars = (Var *)realloc(tokenlist.tokens[tokenlist.token_count - 1].vars, sizeof(Var) * tokenlist.tokens[tokenlist.token_count - 1].var_count);
@@ -83,7 +83,7 @@ Tokenlist parser(const char * file)
                 var_count++;
                 break;
 
-            case '#': ;
+            case NUMBER_CHAR: ;
                 int * number = (int *)malloc(sizeof(int));
                 word = word + 1;
                 int mul = 1;
