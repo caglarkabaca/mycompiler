@@ -1,0 +1,16 @@
+{
+    "configurations": [
+    {
+        "name": "(gdb) Başlat",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/mycompiler",
+        "args": ["--compile", "test.mc"],
+        "stopAtEntry": false,
+        "cwd": "${fileDirname}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb"
+    }
+    ]
+}
