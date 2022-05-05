@@ -37,23 +37,28 @@ Tokenlist parser(const char * file)
         int string_reading = 0;
         while ( (file[file_index] != ' ' || string_reading) && file[file_index] != '\n' && file[file_index] != '\0')
         {
-            if (file[file_index] == '!' && string_reading == 0)
+            if (file[file_index] == '!' && !string_reading)
             {
                 while(file[file_index] != '\n' && file[file_index] != '\0')
                     file_index++;
-                file_index++;
+                continue;
             }
 
             if (file[file_index] == '"')
                 string_reading = !string_reading;
+
             buff[buff_index] = file[file_index];
             file_index++;
             buff_index++;
         }
 
+
         char * word = (char *)calloc(1, sizeof(char) * (buff_index + 1));
         strcat(word, buff);
         file_index++;
+        
+        if (strlen(word) < 1)
+            continue;
 
         switch(word[0]) // ilk karakter
         {

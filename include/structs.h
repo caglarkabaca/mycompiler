@@ -4,6 +4,8 @@
 #define INT 1
 #define STRING 2
 
+
+// eğer bir var değişkeninin calledı varse kullanıcı tanımlamıştır
 struct Var
 {
     int id;

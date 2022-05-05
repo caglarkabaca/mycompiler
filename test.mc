@@ -1,5 +1,5 @@
-PRINTLN "Hello world!"
-SET $a #10333 ! test
-PRINT "LOL |"
-!- bu bir comment
+PRINTLN "Hello world!"!sda
+SET $a #10333 !lol
+PRINT "LOL |" !test
+!test !!
 HLT
