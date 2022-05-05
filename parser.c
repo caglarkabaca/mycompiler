@@ -85,6 +85,7 @@ Tokenlist parser(const char * file)
 
             case NUMBER_CHAR: ;
                 int * number = (int *)malloc(sizeof(int));
+                *number = 0;
                 word = word + 1;
                 int mul = 1;
                 if (word[0] == '-')

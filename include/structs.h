@@ -20,6 +20,13 @@ struct Var
 };
 typedef struct Var Var;
 
+struct Varlist
+{
+    int var_count;
+    Var * vars;
+};
+typedef struct Varlist Varlist;
+
 struct Token
 {
     char * name;

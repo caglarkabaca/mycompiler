@@ -1,7 +1,7 @@
 all: docker
 
 compile:
-	gcc-7 -o mycompiler main.c parser.c compiler.c
+	gcc-9 -g -o mycompiler main.c parser.c compiler.c
 
 run:
 	./mycompiler --compile ./test.mc
