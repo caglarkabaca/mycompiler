@@ -10,8 +10,12 @@ int check_varlist(Varlist varlist, Var var) // -1 => bulunumadı | diğerleri in
 {
     for (int i = 0; i < varlist.var_count; i++)
     {
+        if (!varlist.vars[i].called)
+            continue;
+
         if (check(varlist.vars[i].called, var.called))
         {
+            //printf("l %d %p\n", i, varlist.vars[i].ptr);
             return i;
         }
     }
@@ -145,16 +149,14 @@ void compile(Tokenlist tokenlist)
                 varlist.vars[index].ptr = (void *)malloc(sizeof(int *));
             }
 
-            int * number = (int *)malloc(sizeof(int));
             if (check(name, "ADD"))
-                *number = *(int *)a.ptr +  *(int *)b.ptr;
+                *(int *)varlist.vars[index].ptr  = *(int *)a.ptr +  *(int *)b.ptr;
             else if (check(name, "SUB"))
-                *number = *(int *)a.ptr -  *(int *)b.ptr;
+                *(int *)varlist.vars[index].ptr  = *(int *)a.ptr -  *(int *)b.ptr;
             else if (check(name, "MUL"))
-                *number = *(int *)a.ptr * *(int *)b.ptr;
+                *(int *)varlist.vars[index].ptr  = *(int *)a.ptr * *(int *)b.ptr;
             else if (check(name, "DIV"))
-                *number = *(int *)a.ptr /  *(int *)b.ptr;
-            varlist.vars[index].ptr = (void *)number;
+                *(int *)varlist.vars[index].ptr  = *(int *)a.ptr /  *(int *)b.ptr;
         }
 
     }
