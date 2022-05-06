@@ -175,10 +175,9 @@ void compile(Tokenlist tokenlist)
                 varlist.vars[index].type = INT;
                 varlist.vars[index].ptr = (void *)malloc(sizeof(int *));
             }
-            int * number = (int *)malloc(sizeof(int));
-            free(number);
-            scanf(" %d", number);
-            *(int *)varlist.vars[index].ptr = *number;
+            int data;
+            scanf("%d", &data);
+            *(int *)varlist.vars[index].ptr = data;
         }
     }
 }
