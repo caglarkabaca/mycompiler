@@ -214,6 +214,23 @@ void compile(Tokenlist tokenlist)
             *(int *)varlist.vars[index].ptr = data;
         }
 
+        if (check(name, "GETTXT"))
+        {
+            Var toset = vars[0];
+
+            int index = check_varlist(varlist, toset);
+
+            if (index == -1)
+            {
+                printf("[ERROR] need to push var before get\n");
+                break;
+            }
+
+            fflush(stdout);
+            fgets((char *)varlist.vars[index].ptr, varlist.vars[index].id, stdin);
+        
+        }
+
         if (check(name, "GOTO") || check(name, "GOGT") || check(name, "GOLT"))
         {
             Var loopvar = varlist.vars[check_varlist(varlist, vars[0])];
@@ -241,6 +258,33 @@ void compile(Tokenlist tokenlist)
                         token_i = *(int *)loopvar.ptr;   
                 }
             }
+        }
+
+        if (check(name, "PUSH"))
+        {
+            Var var = vars[0];
+
+            Var size_var = vars[1];
+
+            if (size_var.called)
+                size_var = varlist.vars[check_varlist(varlist, size_var)];
+
+            int size = *(int *)size_var.ptr;
+            int index = check_varlist(varlist, var);
+
+            if (index == -1)
+            {
+                index = varlist.var_count;
+                varlist.var_count++;
+                varlist.vars = (Var *)realloc(varlist.vars, sizeof(Var) * varlist.var_count);
+                varlist.vars[index].called = (char *)calloc(1, sizeof(char)* strlen(var.called));
+                strcpy(varlist.vars[index].called, var.called);
+                varlist.vars[index].ptr = (void *)malloc(size);
+                varlist.vars[index].type = STRING;
+                varlist.vars[index].id = size;
+            }
+            else
+                varlist.vars[index].ptr = (void *)realloc(varlist.vars[index].ptr, size);
         }
 
     }

@@ -41,11 +41,11 @@ int main(int argc, char** argv)
         const char * file = read_file(argv[2]);
 
         Tokenlist tokenlist = parser(file);
-        print_tokenlist(tokenlist);
+        //print_tokenlist(tokenlist);
 
         printf("-- output --\n");
         compile(tokenlist);
-        
+
         free(tokenlist.tokens);
 
     }
