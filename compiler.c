@@ -29,6 +29,37 @@ void compile(Tokenlist tokenlist)
     varlist.vars = (Var *)malloc(sizeof(Var));
     varlist.var_count = 1;
 
+    // SETPOS
+
+    for (int _index = 0; _index < tokenlist.token_count; _index++)
+    {
+        Token token = tokenlist.tokens[_index];
+        if (check(token.name, "SETPOS"))
+        {
+            Var var = token.vars[0];
+
+            int index = check_varlist(varlist, var);
+
+            if (index == -1)
+            {
+                index = varlist.var_count;
+                varlist.var_count++;
+                varlist.vars = (Var *)realloc(varlist.vars, sizeof(Var) * varlist.var_count);
+                varlist.vars[index].called = (char *)calloc(1, sizeof(char)* strlen(var.called));
+                strcpy(varlist.vars[index].called, var.called);
+                varlist.vars[index].type = INT;
+                int * number = (int *)malloc(sizeof(int));
+                *number = _index;
+                varlist.vars[index].ptr = (void *)malloc(sizeof(int *));
+                varlist.vars[index].ptr = number;
+            }
+            else
+                *(int *)varlist.vars[index].ptr = _index;
+        }
+    }
+    
+    // actual loop
+
     for (int token_i = 0; token_i < tokenlist.token_count; token_i++)
     {
         Token token = tokenlist.tokens[token_i];
@@ -175,9 +206,42 @@ void compile(Tokenlist tokenlist)
                 varlist.vars[index].type = INT;
                 varlist.vars[index].ptr = (void *)malloc(sizeof(int *));
             }
+
             int data;
-            scanf("%d", &data);
+            fflush(stdout);
+            if (scanf("%d", &data) == -1)
+                perror("scanf failed");
             *(int *)varlist.vars[index].ptr = data;
         }
+
+        if (check(name, "GOTO") || check(name, "GOGT") || check(name, "GOLT"))
+        {
+            Var loopvar = varlist.vars[check_varlist(varlist, vars[0])];
+
+            if (check(name, "GOTO"))
+                token_i = *(int *)loopvar.ptr;
+            else 
+            {
+                Var a = vars[1];
+                Var b = vars[2];
+
+                if (a.called)
+                    a = varlist.vars[check_varlist(varlist, a)];
+                if (b.called)
+                    b = varlist.vars[check_varlist(varlist, b)];            
+                    
+                if (check(name, "GOGT"))
+                {
+                    if (*(int *)a.ptr > *(int *)b.ptr)
+                        token_i = *(int *)loopvar.ptr;   
+                }
+                else if (check(name, "GOLT"))
+                {
+                    if (*(int *)a.ptr < *(int *)b.ptr)
+                        token_i = *(int *)loopvar.ptr;   
+                }
+            }
+        }
+
     }
 }

@@ -8,4 +8,7 @@ run:
 
 docker:
 	docker build -t myc ./
-	docker run myc
+	docker run --interactive myc
+
+debug:
+	gdb --args ./mycompiler --compile ./test.mc
