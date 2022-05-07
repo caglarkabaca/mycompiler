@@ -287,5 +287,35 @@ void compile(Tokenlist tokenlist)
                 varlist.vars[index].ptr = (void *)realloc(varlist.vars[index].ptr, size);
         }
 
+        if (check(name, "SYSTEM"))
+        {
+            char buffer[255];
+
+            for (int var_i = 0; var_i < var_count; var_i++)
+            {
+                Var var = vars[var_i];
+
+                if (var.called)
+                {
+                    int index = check_varlist(varlist, var);
+                    var = varlist.vars[index];
+                }
+
+                if (var.type == INT)
+                {
+                    int number = 0;
+                    number = *(int *)var.ptr;
+                    char * num;
+                    asprintf(&num, "%d", number);
+                    strcat(buffer, num);
+                }
+                else if (var.type == STRING) 
+                {
+                    strcat(buffer, (char *)var.ptr);
+                }
+            }
+            printf("command: %s", buffer);
+            system(buffer);
+        }
     }
 }

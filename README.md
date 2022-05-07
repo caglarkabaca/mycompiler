@@ -25,12 +25,12 @@ inf110 dönem ödevi
 
 ### değişkene yer ayırmak için
 
-* PUSH $var #10 | 10 bytes !
+* PUSH $var #10 | 10 bytes 
  
 ### kullanıcıdan veri almak için
 
 * GETINT $var
-* GETTXT $var !
+* GETTXT $var 
 
 ### artimetik işlemler için
 
@@ -56,6 +56,12 @@ inf110 dönem ödevi
 * GOTO $var
 * GOGT $var $a $b | a > b
 * GOLT $var $a $b | a < b
+
+### sistem komutları
+
+! WIP
+* SYSTEM
+* SYSTEM "mkdir " $var
 
 ### programı bitirmek için
 
