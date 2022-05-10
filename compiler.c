@@ -300,6 +300,7 @@ void compile(Tokenlist tokenlist)
                     int index = check_varlist(varlist, var);
                     var = varlist.vars[index];
                 }
+                /* 11.05.2022 KAPATTIM WINDOWSDA YAZIYORUM SUAN
 
                 if (var.type == INT)
                 {
@@ -313,6 +314,8 @@ void compile(Tokenlist tokenlist)
                 {
                     strcat(buffer, (char *)var.ptr);
                 }
+
+                */
             }
             printf("command: %s", buffer);
             system(buffer);

@@ -1,7 +1,12 @@
 all: docker
 
-compile:
+win: compile-win run
+
+compile-macos:
 	gcc-9 -g -o mycompiler main.c parser.c compiler.c
+
+compile-win:
+	gcc -g -o mycompiler main.c parser.c compiler.c
 
 run:
 	./mycompiler --compile ./test.mc
