@@ -13,6 +13,13 @@ char * read_file(const char* path){
     fread(buffer, 1, size, fp);
     buffer[size] = '\0';
     fclose(fp);
+    
+    int k = 0;
+    for (int i = 0; buffer[i] != '\0'; ++i)
+        if (buffer[i] != '\r')
+            buffer[k++] = buffer[i];
+    buffer[k] = '\0';
+    
     return buffer;
 }
 
@@ -108,7 +115,7 @@ Tokenlist parser(const char * file)
                 var_count++;
                 break;
 
-            default: // kelime
+            default: ; // kelime
                 tokenlist.token_count++;
                 tokenlist.tokens = (Token *)realloc(tokenlist.tokens, sizeof(Token) * tokenlist.token_count);
                 tokenlist.tokens[tokenlist.token_count - 1].name = (char *)calloc(buff_index + 1, sizeof(char));

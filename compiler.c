@@ -27,7 +27,7 @@ void compile(Tokenlist tokenlist)
 {   
     Varlist varlist;
     
-    varlist.vars = (Var *)malloc(sizeof(Var));
+    varlist.vars = (Var *)calloc(1, sizeof(Var));
     varlist.var_count = 1;
 
     // SETPOS
@@ -46,8 +46,7 @@ void compile(Tokenlist tokenlist)
                 varlist.var_count++;
                 varlist.vars = (Var *)realloc(varlist.vars, sizeof(Var) * varlist.var_count);
                 varlist.vars[index].called = (char *)calloc(strlen(var.called) + 1, sizeof(char));
-                strcat(varlist.vars[index].called, var.called);
-                varlist.vars[index].called[strlen(var.called) - 1] = '\0'; // ersetzt \r mit \0
+                strcpy(varlist.vars[index].called, var.called);
                 varlist.vars[index].type = INT;
                 int * number = (int *)malloc(sizeof(int));
                 *number = _index;
@@ -79,8 +78,6 @@ void compile(Tokenlist tokenlist)
 
                 if (var.called)
                 {
-                    if (var.called[strlen(var.called) - 1] == '\r')
-                        var.called[strlen(var.called) - 1] = '\0';
                     int index = check_varlist(varlist, var);
                     var = varlist.vars[index];
                     if (var.type == INT)
@@ -117,24 +114,27 @@ void compile(Tokenlist tokenlist)
             Var b = vars[1];
             int index = check_varlist(varlist, a);
 
+            if (b.called)
+                b = varlist.vars[check_varlist(varlist, b)];
+
             if (index == -1)
             {
                 index = varlist.var_count;
                 varlist.var_count++;
                 varlist.vars = (Var *)realloc(varlist.vars, sizeof(Var) * varlist.var_count);
-                varlist.vars[index].called = (char *)calloc(1, sizeof(char)* strlen(a.called));
+                varlist.vars[index].called = (char *)calloc(strlen(a.called) + 1, sizeof(char));
                 strcpy(varlist.vars[index].called, a.called);
                 varlist.vars[index].type = b.type;
                 if (b.type == INT)
                 {
                     int * number = (int *)malloc(sizeof(int));
                     *number = *(int *)b.ptr;
-                    varlist.vars[index].ptr = (void *)malloc(sizeof(int *));
+                    varlist.vars[index].ptr = (void *)calloc(1, sizeof(int *));
                     varlist.vars[index].ptr = number;
                 }
                 else if (b.type == STRING)
                 {
-                    varlist.vars[index].ptr = (void *)malloc(sizeof(char) * strlen(b.ptr));
+                    varlist.vars[index].ptr = (void *)calloc(strlen(b.ptr) + 1, sizeof(char));
                     strcpy(varlist.vars[index].ptr, b.ptr);
                 }
             }
@@ -201,7 +201,7 @@ void compile(Tokenlist tokenlist)
                 index = varlist.var_count;
                 varlist.var_count++;
                 varlist.vars = (Var *)realloc(varlist.vars, sizeof(Var) * varlist.var_count);
-                varlist.vars[index].called = (char *)calloc(1, sizeof(char)* strlen(toset.called));
+                varlist.vars[index].called = (char *)calloc(strlen(toset.called) + 1, sizeof(char));
                 strcpy(varlist.vars[index].called, toset.called);
                 varlist.vars[index].type = INT;
                 varlist.vars[index].ptr = (void *)malloc(sizeof(int *));
