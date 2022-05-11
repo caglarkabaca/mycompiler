@@ -36,15 +36,15 @@ void print_tokenlist(Tokenlist tokenlist)
 int main(int argc, char** argv)
 {
     printf("... main running ...\n");
-    if (argc == 3 && (strcmp(argv[1], "--compile") == 0))
+    if (argc >= 3 && (strcmp(argv[1], "--compile") == 0))
     {
         const char * file = read_file(argv[2]);
-
+       
         Tokenlist tokenlist = parser(file);
         print_tokenlist(tokenlist);
 
         printf("-- output --\n");
-        compile(tokenlist);
+        //compile(tokenlist);
 
         free(tokenlist.tokens);
 

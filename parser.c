@@ -9,7 +9,7 @@ char * read_file(const char* path){
     fseek(fp, 0, SEEK_END);
     int size = ftell(fp);
     fseek(fp, 0, SEEK_SET);
-    char * buffer = (char *)malloc(sizeof(char) * (size + 1));
+    char * buffer = (char *)calloc(size + 1, sizeof(char));
     fread(buffer, 1, size, fp);
     buffer[size] = '\0';
     fclose(fp);
@@ -53,7 +53,7 @@ Tokenlist parser(const char * file)
         }
 
 
-        char * word = (char *)calloc(1, sizeof(char) * (buff_index + 1));
+        char * word = (char *)calloc(strlen(buff) + 1, sizeof(char));
         strcat(word, buff);
         file_index++;
 

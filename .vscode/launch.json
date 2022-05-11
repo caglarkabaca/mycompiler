@@ -11,6 +11,18 @@
         "environment": [],
         "externalConsole": false,
         "MIMode": "gdb"
+    },
+    {
+        "name": "(gdb) Başlat windows",
+        "type": "cppdbg",
+        "request": "launch",
+        "program": "${workspaceFolder}/mycompiler.exe",
+        "args": ["--compile", "test.mc"],
+        "stopAtEntry": false,
+        "cwd": "${fileDirname}",
+        "environment": [],
+        "externalConsole": false,
+        "MIMode": "gdb"
     }
     ]
 }
