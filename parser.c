@@ -111,10 +111,10 @@ Tokenlist parser(const char * file)
             default: // kelime
                 tokenlist.token_count++;
                 tokenlist.tokens = (Token *)realloc(tokenlist.tokens, sizeof(Token) * tokenlist.token_count);
-                tokenlist.tokens[tokenlist.token_count - 1].name = (char *)calloc(1, sizeof(char) * (buff_index + 1));
+                tokenlist.tokens[tokenlist.token_count - 1].name = (char *)calloc(buff_index + 1, sizeof(char));
                 strcat(tokenlist.tokens[tokenlist.token_count - 1].name, word);
                 tokenlist.tokens[tokenlist.token_count - 1].var_count = 0;
-                tokenlist.tokens[tokenlist.token_count - 1].vars = (Var *)malloc(sizeof(Var));
+                tokenlist.tokens[tokenlist.token_count - 1].vars = (Var *)calloc(1, sizeof(Var));
                 break;
         }
 

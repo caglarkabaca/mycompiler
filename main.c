@@ -16,17 +16,17 @@ void print_tokenlist(Tokenlist tokenlist)
         {
             if (tokenlist.tokens[i].vars[j].called)
             {
-                printf(" %s", (char *)tokenlist.tokens[i].vars[j].called);
+                printf(" c:%s", (char *)tokenlist.tokens[i].vars[j].called);
             }
-            if (tokenlist.tokens[i].vars[j].type == STRING)
+            else if (tokenlist.tokens[i].vars[j].type == STRING)
             {
-                printf(" %s", (char *)tokenlist.tokens[i].vars[j].ptr);
+                printf(" s:%s", (char *)tokenlist.tokens[i].vars[j].ptr);
             }
-            if (tokenlist.tokens[i].vars[j].type == INT)
+            else if (tokenlist.tokens[i].vars[j].type == INT)
             {
                 int number = 0;
                 number = *(int *)tokenlist.tokens[i].vars[j].ptr;
-                printf(" %d", number);
+                printf(" i:%d", number);
             }
         }
         printf("\n");
@@ -44,7 +44,7 @@ int main(int argc, char** argv)
         print_tokenlist(tokenlist);
 
         printf("-- output --\n");
-        //compile(tokenlist);
+        compile(tokenlist);
 
         free(tokenlist.tokens);
 

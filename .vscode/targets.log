@@ -1,0 +1,352 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# Bu bir serbest yaz�l�md�r; kopyalama ko�ullar� i�in kaynak koduna bak�n�z.
+# Hi�bir garantisi yoktur; hatta SATILAB�L�RL��� veya �AHS� KULLANIMINIZA
+# UYGUNLU�U i�in bile garanti verilmez.
+
+# This program built for i386-pc-mingw32
+ 
+
+# Make veri taban�, Wed May 11 15:29:30 2022
+ �zerine bas�ld�
+# De�i�kenler
+
+# otomatik
+<D = $(patsubst %/,%,$(dir $<))
+# otomatik
+?F = $(notdir $?)
+# derleme dosyas�
+MAKEFLAGS = Rrqp
+# �evre
+VSCODE_LOG_NATIVE = false
+# otomatik
+?D = $(patsubst %/,%,$(dir $?))
+# otomatik
+@D = $(patsubst %/,%,$(dir $@))
+# �evre
+HOMEDRIVE = C:
+# otomatik
+@F = $(notdir $@)
+# otomatik
+^D = $(patsubst %/,%,$(dir $^))
+# derleme dosyas�
+CURDIR := c:/Users/kabac/Desktop/mycompiler
+# �ntan�ml�
+SHELL := sh.exe
+# �evre
+WINDIR = C:\Windows
+# �evre
+VSCODE_NLS_CONFIG = {"locale":"tr","availableLanguages":{},"_languagePackSupport":true}
+# �evre
+VBOX_MSI_INSTALL_PATH = C:\Program Files\Oracle\VirtualBox\
+# �evre
+ONEDRIVE = C:\Users\kabac\OneDrive
+# �evre
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# derleme dosyas� (`makefile'den, sat�r 1)
+MAKEFILE_LIST :=  makefile
+# �evre
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# �evre
+TMP = C:\Users\kabac\AppData\Local\Temp
+# �evre
+VSCODE_VERBOSE_LOGGING = true
+# �evre
+PROGRAMW6432 = C:\Program Files
+# �evre
+PROGRAMDATA = C:\ProgramData
+# �evre
+MINGW = C:\MinGW\bin
+# �evre
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-e86c9a5c-ac55-43ca-bcec-6d5eb77c299c-sock
+# �evre
+VSCODE_CWD = C:\Users\kabac\AppData\Local\Programs\Microsoft VS Code
+# �evre
+PATH = C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\mmix;C:\Program Files\dotnet\;C:\Program Files\Git\cmd;C:\Program Files\nodejs\;C:\Program Files\MATLAB\R2021b\bin;C:\Program Files\PuTTY\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\MinGW\bin;C:\Program Files (x86)\GnuWin32\bin;;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\kabac\AppData\Local\Programs\Python\Python39\Scripts\;C:\Users\kabac\AppData\Local\Programs\Python\Python39\;C:\Users\kabac\AppData\Local\Microsoft\WindowsApps;C:\Users\kabac\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\kabac\AppData\Local\GitHubDesktop\bin;C:\Users\kabac\AppData\Roaming\npm;C:\Program Files\heroku\bin;C:\MinGW\bin;
+# �evre
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# �evre
+PROCESSOR_ARCHITECTURE = x86
+# �evre
+USERPROFILE = C:\Users\kabac
+# �evre
+ALLUSERSPROFILE = C:\ProgramData
+# �evre
+VSCODE_LOG_STACK = false
+# �evre
+NUMBER_OF_PROCESSORS = 4
+# �evre
+ELECTRON_RUN_AS_NODE  
+= 1
+# �ntan�ml�
+.FEATURES := target-specific order-only second-expansion else-if archives
+# otomatik
+%F = $(notdir $%)
+# �evre
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9068_IPVVFVNQNUPANPOD
+# �evre
+VSCODE_PIPE_LOGGING = true
+# �evre
+COMPUTERNAME = DESKTOP-TETFJCT
+# �evre
+PROGRAMFILES = C:\Program Files (x86)
+# �evre
+DC_TOKEN = OTU1ODI0MjYwMjQzMzk4Njg3.YjnStQ.ebAyjA46CHMsDMY0M76ZOle8nfM
+# �evre
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# �evre
+ASL.LOG = Destination=file
+# �evre
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# �evre
+USERNAME = kabac
+# �evre
+PUBLIC = C:\Users\Public
+# �evre
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# �evre
+VSCODE_CODE_CACHE_PATH = C:\Users\kabac\AppData\Roaming\Code\CachedData\da15b6fd3ef856477bf6f4fb29ba1b7af717770d
+# �evre
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
+# �evre
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# �evre
+LOGONSERVER = \\DESKTOP-TETFJCT
+# �evre
+ONEDRIVECONSUMER = C:\Users\kabac\OneDrive
+# �evre
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# �evre
+USERDOMAIN = DESKTOP-TETFJCT
+# �ntan�ml�
+MAKE = $(MAKE_COMMAND)
+# �ntan�ml�
+MAKECMDGOALS := all
+# �ntan�ml�
+MAKE_VERSION := 3.81
+# derleme dosyas�
+.DEFAULT_GOAL := all
+# �evre
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# otomatik
+%D = $(patsubst %/,%,$(dir $%))
+# �evre
+LOCALAPPDATA = C:\Users\kabac\AppData\Local
+# �evre
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+# �ntan�ml�
+MAKE_COMMAND := make.exe
+# �evre
+PROCESSOR_ARCHITEW6432 = AMD64
+# �ntan�ml�
+.VARIABLES := 
+# otomatik
+*F = $(notdir $*)
+# �evre
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 94 Stepping 3, GenuineIntel
+# �evre
+OS = Windows_NT
+# �evre
+VSCODE_IPC_HOOK = \\.\pipe\ab2b01675176ee326ff9508ceaae4138-1.67.1-main-sock
+# �evre
+HOMEPATH = \Users\kabac
+# �evre
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# �evre
+PROMPT = $P$G
+# �evre
+MFLAGS = -Rrqp
+# otomatik
+*D = $(patsubst %/,%,$(dir $*))
+# �evre
+SYSTEMROOT = C:\Windows
+# otomatik
++D = $(patsubst %/,%,$(dir $+))
+# otomatik
++F = $(notdir $+)
+# �evre
+APPDATA = C:\Users\kabac\AppData\Roaming
+# �evre
+__COMPAT_LAYER = DetectorsAppHealth
+# �evre
+TEMP = C:\Users\kabac\AppData\Local\Temp
+# �evre
+COMSPEC = C:\Windows\system32\cmd.exe
+# �ntan�ml�
+MAKEFILES := 
+# otomatik
+<F = $(notdir $<)
+# �evre
+LC_ALL = C
+# otomatik
+^F = $(notdir $^)
+# �ntan�ml�
+SUFFIXES := 
+# �evre
+SYSTEMDRIVE = C:
+# �evre
+SESSIONNAME = Console
+# �evre
+PROCESSOR_REVISION = 5e03
+# �evre
+USERDOMAIN_ROAMINGPROFILE = DESKTOP-TETFJCT
+# �evre
+MAKELEVEL := 0
+# �evre
+LANG = C
+# �evre
+PROCESSOR_LEVEL = 6
+# �evre
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# �evre
+VSCODE_PID = 9068
+# �evre
+FIREFOX = C:\Program Files\Mozilla Firefox
+# de�i�ken k�mesi hash tablosunun durumu:
+# Y�k=95/1024=9%, Rehash=0, �ak��malar=10/117=9%
+
+# Pattern-specific Variable Values
+
+# �rne�e duyarl� de�i�ken de�eri yok.
+
+# Dizin
+
+# : durumlanamad�.
+# C:\Program Files\heroku\bin (anahtar (key) C:/Program Files/heroku/bin, de�i�iklik tarihi (mtime) 1647989065):4 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files\Common Files\Oracle\Java\javapath (anahtar (key) C:/Program Files/Common Files/Oracle/Java/javapath, de�i�iklik tarihi (mtime) 1643279099):6 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files\Docker\Docker\resources\bin (anahtar (key) C:/Program Files/Docker/Docker/resources/bin, de�i�iklik tarihi (mtime) 1652223710):13 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files (x86)\mmix: durumlanamad�.
+# C:\Windows\System32\WindowsPowerShell\v1.0\ (anahtar (key) C:/Windows/System32/WindowsPowerShell/v1.0/, de�i�iklik tarihi (mtime) 1633528183):30 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Windows\System32\Wbem (anahtar (key) C:/Windows/System32/Wbem, de�i�iklik tarihi (mtime) 1647129792):154 dosyalar�,hay�rolanaks�zl�klar.
+# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652272140):16 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files\nodejs\ (anahtar (key) C:/Program Files/nodejs/, de�i�iklik tarihi (mtime) 1644956748):13 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common (anahtar (key) C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common, de�i�iklik tarihi (mtime) 1651052077):10 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Users\kabac\AppData\Roaming\npm (anahtar (key) C:/Users/kabac/AppData/Roaming/npm, de�i�iklik tarihi (mtime) 1644956738):2 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files\dotnet\ (anahtar (key) C:/Program Files/dotnet/, de�i�iklik tarihi (mtime) 1643112640):8 dosyalar�,hay�rolanaks�zl�klar.
+# C:\MinGW\bin (anahtar (key) C:/MinGW/bin, de�i�iklik tarihi (mtime) 1646170801):144 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Users\kabac\AppData\Local\Programs\Microsoft VS Code\bin (anahtar (key) C:/Users/kabac/AppData/Local/Programs/Microsoft VS Code/bin, de�i�iklik tarihi (mtime) 1652224486):4 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Windows\System32\OpenSSH\: durumlanamad�.
+# C:\Program Files\PuTTY\ (anahtar (key) C:/Program Files/PuTTY/, de�i�iklik tarihi (mtime) 1650992557):12 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files (x86)\Common Files\Oracle\Java\javapath (anahtar (key) C:/Program Files (x86)/Common Files/Oracle/Java/javapath, de�i�iklik tarihi (mtime) 1652260184):5 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Users\kabac\AppData\Local\Programs\Python\Python39\ (anahtar (key) C:/Users/kabac/AppData/Local/Programs/Python/Python39/, de�i�iklik tarihi (mtime) 1643629148):18 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Users\kabac\AppData\Local\GitHubDesktop\bin (anahtar (key) C:/Users/kabac/AppData/Local/GitHubDesktop/bin, de�i�iklik tarihi (mtime) 1644666502):4 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Users\kabac\AppData\Local\Microsoft\WindowsApps (anahtar (key) C:/Users/kabac/AppData/Local/Microsoft/WindowsApps, de�i�iklik tarihi (mtime) 1651144041):42 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Windows (anahtar (key) C:/Windows, de�i�iklik tarihi (mtime) 1651085637):114 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Users\kabac\AppData\Local\Programs\Python\Python39\Scripts\ (anahtar (key) C:/Users/kabac/AppData/Local/Programs/Python/Python39/Scripts/, de�i�iklik tarihi (mtime) 1643629148):5 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files\MATLAB\R2021b\bin (anahtar (key) C:/Program Files/MATLAB/R2021b/bin, de�i�iklik tarihi (mtime) 1645457487):14 dosyalar�,hay�rolanaks�zl�klar.
+# C:\ProgramData\DockerDesktop\version-bin: durumlanamad�.
+# C:\Program Files\Git\cmd (anahtar (key) C:/Program Files/Git/cmd, de�i�iklik tarihi (mtime) 1644666878):8 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Windows\system32 (anahtar (key) C:/Windows/system32, de�i�iklik tarihi (mtime) 1652260184):2931 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR (anahtar (key) C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR, de�i�iklik tarihi (mtime) 1639838842):5 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files (x86)\GnuWin32\bin (anahtar (key) C:/Program Files (x86)/GnuWin32/bin, de�i�iklik tarihi (mtime) 1652220823):5 dosyalar�,hay�rolanaks�zl�klar.
+
+# 3567 dosyalar�,hay�r 28 dizinde olanaks�zl�klar.
+
+# �rt�k Kurallar
+
+# �rt�k  
+kural yok.
+
+# Dosyalar
+
+all: compile run
+#  Komut-sat�r� hedefi.
+#  �rt�k kural ara�t�rmas� yap�lm��t�.
+#  Dosya yok.
+#  Dosya g�ncelle�tirilmi�ti.
+#   G�ncellenmi� olmas� gerekir (-q verildi).
+# de�i�ken k�mesi hash tablosunun durumu:
+# Y�k=0/32=0%, Rehash=0, �ak��malar=0/2=0%
+
+# Bir hedef de�il:
+.DEFAULT:
+#  �rt�k kural ara�t�rmas� yap�lmam��t�.
+#  De�i�iklik zaman� hi� kontrol edilmedi.
+#  Dosya g�ncelle�tirilmemi�ti.
+
+debug:
+#  �rt�k kural ara�t�rmas� yap�lmam��t�.
+#  De�i�iklik zaman� hi� kontrol edilmedi.
+#  Dosya g�ncelle�tirilmemi�ti.
+#  �al��t�rma komutlar� (`makefile'den, sat�r 14):
+	gdb --args ./mycompiler --compile ./test.mc
+	
+
+# Bir hedef de�il:
+makefile:
+#  �rt�k kural ara�t�rmas� yap�lm��t�.
+#  Son de�i�iklik tarihi 2022-05-11 15:29:10
+#  Dosya g�ncelle�tirilmi�ti.
+#   Tamamen g�ncellendi.
+# de�i�ken k�mesi hash tablosunun durumu:
+# Y�k=0/32=0%, Rehash=0, �ak��malar=0/0=0%
+
+# Bir hedef de�il:
+.SUFFIXES:
+#  �rt�k kural ara�t�rmas� yap�lmam��t�.
+#  De�i�iklik zaman� hi� kontrol edilmedi.
+#  Dosya g�ncelle�tirilmemi�ti.
+
+compile:
+#  �rt�k kural ara�t�rmas� yap�lmam��t�.
+#  �rt�k/de�i�meyen kal�p k�k�: `'
+#  Dosya yok.
+#  Dosya g�ncelle�tirilmi�ti.
+#   G�ncellenmi� olmas� gerekir (-q verildi).
+# otomatik
+# @ := compile
+# otomatik
+# % := 
+# otomatik
+# * := 
+# otomatik
+# + := 
+# otomatik
+# | := 
+# otomatik
+# < := 
+# otomatik
+# ^ := 
+# otomatik
+# ? := 
+# de�i�ken k�mesi hash tablosunun durumu:
+# Y�k=8/32=25%, Rehash=0, �ak��malar=1/10=10%
+#  �al��t�rma komutlar� (`makefile'den, sat�r 4):
+	gcc-9 -g -o my 
+compiler main.c parser.c compiler.c
+	
+
+run:
+#  �rt�k kural ara�t�rmas� yap�lmam��t�.
+#  De�i�iklik zaman� hi� kontrol edilmedi.
+#  Dosya g�ncelle�tirilmemi�ti.
+#  �al��t�rma komutlar� (`makefile'den, sat�r 7):
+	./mycompiler --compile ./test.mc
+	
+
+docker:
+#  �rt�k kural ara�t�rmas� yap�lmam��t�.
+#  De�i�iklik zaman� hi� kontrol edilmedi.
+#  Dosya g�ncelle�tirilmemi�ti.
+#  �al��t�rma komutlar� (`makefile'den, sat�r 10):
+	docker build -t myc ./
+	docker run --interactive myc
+	
+
+# dosyalar�n hash tablosu durumlar�:
+# Y�k=8/1024=1%, Rehash=0, �ak��malar=0/23=0%
+# VPATH Arama yolu
+
+# `vpath' arama yollar� yok
+
+# Genel arama yolu (`VPATH' �evre de�i�keni) yok.
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+
+# Wed May 11 15:29:30 2022
+ �zerindeki Make veri taban� tamamland�
+ 

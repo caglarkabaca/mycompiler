@@ -1,4 +1,4 @@
-all: docker
+all: compile run
 
 compile:
 	gcc-9 -g -o mycompiler main.c parser.c compiler.c

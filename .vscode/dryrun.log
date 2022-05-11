@@ -1,0 +1,6 @@
+make.exe --dry-run --keep-going --print-directory
+make.exe: `c:/Users/kabac/Desktop/mycompiler' dizine giriliyor
+gcc-9 -g -o mycompiler main.c parser.c compiler.c
+./mycompiler --compile ./test.mc
+make.exe: `c:/Users/kabac/Desktop/mycompiler' dizininden ��k�l�yor
+ 

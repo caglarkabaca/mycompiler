@@ -8,6 +8,7 @@
 
 int check_varlist(Varlist varlist, Var var) // -1 => bulunumadı | diğerleri indexi
 {
+
     for (int i = 0; i < varlist.var_count; i++)
     {
         if (!varlist.vars[i].called)
@@ -37,7 +38,6 @@ void compile(Tokenlist tokenlist)
         if (check(token.name, "SETPOS"))
         {
             Var var = token.vars[0];
-
             int index = check_varlist(varlist, var);
 
             if (index == -1)
@@ -45,8 +45,9 @@ void compile(Tokenlist tokenlist)
                 index = varlist.var_count;
                 varlist.var_count++;
                 varlist.vars = (Var *)realloc(varlist.vars, sizeof(Var) * varlist.var_count);
-                varlist.vars[index].called = (char *)calloc(1, sizeof(char)* strlen(var.called));
-                strcpy(varlist.vars[index].called, var.called);
+                varlist.vars[index].called = (char *)calloc(strlen(var.called) + 1, sizeof(char));
+                strcat(varlist.vars[index].called, var.called);
+                varlist.vars[index].called[strlen(var.called) - 1] = '\0'; // ersetzt \r mit \0
                 varlist.vars[index].type = INT;
                 int * number = (int *)malloc(sizeof(int));
                 *number = _index;
@@ -78,14 +79,13 @@ void compile(Tokenlist tokenlist)
 
                 if (var.called)
                 {
+                    if (var.called[strlen(var.called) - 1] == '\r')
+                        var.called[strlen(var.called) - 1] = '\0';
                     int index = check_varlist(varlist, var);
                     var = varlist.vars[index];
                     if (var.type == INT)
                     {
-                        int * number = (int *)malloc(sizeof(int));
-                        *number = *(int *)var.ptr;
-                        printf("%d", *number);
-                        free(number);
+                        printf("%d", *(int *)var.ptr);
                     }
                     else if (var.type == STRING) 
                     {
