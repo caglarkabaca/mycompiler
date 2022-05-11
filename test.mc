@@ -5,5 +5,6 @@ SETPOS $LOOP
 MUL $res $res $number
 SUB $number $number #1
 GOGT $LOOP $number #0
-PRINTLN $old "! => " $res
+!PRINTLN $old " => " $res
+SYSTEM "echo " $old " : " $res
 HLT

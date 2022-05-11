@@ -8,7 +8,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This program built for i386-pc-mingw32
  
 
-# Make veri taban�, Wed May 11 17:21:49 2022
+# Make veri taban�, Wed May 11 20:26:49 2022
  �zerine bas�ld�
 # De�i�kenler
 
@@ -35,7 +35,8 @@ CURDIR := c:/Users/kabac/Desktop/mycompiler
 # �ntan�ml�
 SHELL := sh.exe
 # �evre
-WINDIR = C:\Windows
+WINDIR = C:\Wi 
+ndows
 # �evre
 VSCODE_NLS_CONFIG = {"locale":"tr","availableLanguages":{},"_languagePackSupport":true}
 # �evre
@@ -59,7 +60,7 @@ PROGRAMDATA = C:\ProgramData
 # �evre
 MINGW = C:\MinGW\bin
 # �evre
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9788ff20-84cf-4b7d-a3f4-c819e862c14e-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-100e4f26-9ce9-4681-b6f4-5a3b6439d655-sock
 # �evre
 VSCODE_CWD = C:\Users\kabac\AppData\Local\Programs\Microsoft VS Code
 # �evre
@@ -83,7 +84,7 @@ ELECTRON_RUN_AS_NODE = 1
 # otomatik
 %F = $(notdir $%)
 # �evre
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_2472_VOIHCBMPDKALSDXB
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_2196_ABZPENRFMQCOCTCH
 # �evre
 VSCODE_PIPE_LOGGING = true
 # �evre
@@ -197,7 +198,7 @@ PROCESSOR_LEVEL = 6
 # �evre
 FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # �evre
-VSCODE_PID = 2472
+VSCODE_PID = 2196
 # �evre
 FIREFOX = C:\Program Files\Mozilla Firefox
 # de�i�ken k�mesi hash tablosunun durumu:
@@ -216,7 +217,7 @@ FIREFOX = C:\Program Files\Mozilla Firefox
 # C:\Program Files (x86)\mmix: durumlanamad�.
 # C:\Windows\System32\WindowsPowerShell\v1.0\ (anahtar (key) C:/Windows/System32/WindowsPowerShell/v1.0/, de�i�iklik tarihi (mtime) 1633528183):30 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Windows\System32\Wbem (anahtar (key) C:/Windows/System32/Wbem, de�i�iklik tarihi (mtime) 1647129792):154 dosyalar�,hay�rolanaks�zl�klar.
-# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652274690):16 dosyalar�,hay�rolanaks�zl�klar.
+# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652281899):16 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files\nodejs\ (anahtar (key) C:/Program Files/nodejs/, de�i�iklik tarihi (mtime) 1644956748):13 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common (anahtar (key) C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common, de�i�iklik tarihi (mtime) 1651052077):10 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Users\kabac\AppData\Roaming\npm (anahtar (key) C:/Users/kabac/AppData/Roaming/npm, de�i�iklik tarihi (mtime) 1644956738):2 dosyalar�,hay�rolanaks�zl�klar.
@@ -247,7 +248,8 @@ FIREFOX = C:\Program Files\Mozilla Firefox
 # Dosyalar
 
 all: compile run
-#  Komut-sat�r� hedefi.
+#   
+Komut-sat�r� hedefi.
 #  �rt�k kural ara�t�rmas� yap�lm��t�.
 #  Dosya yok.
 #  Dosya g�ncelle�tirilmi�ti.
@@ -343,6 +345,6 @@ docker:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Wed May 11 17:21:49 2022
+# Wed May 11 20:26:49 2022
  �zerindeki Make veri taban� tamamland�
  

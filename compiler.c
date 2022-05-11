@@ -287,5 +287,43 @@ void compile(Tokenlist tokenlist)
                 varlist.vars[index].ptr = (void *)realloc(varlist.vars[index].ptr, size);
         }
 
+        if (check(name, "SYSTEM"))
+        {
+            char buff[255];
+            char * code = (char *)calloc(1, sizeof(char));
+            for (int var_i = 0; var_i < var_count; var_i++)
+            {
+                Var var = vars[var_i];
+
+                if (var.called)
+                {
+                    int index = check_varlist(varlist, var);
+                    var = varlist.vars[index];
+                    if (var.type == INT)
+                    {
+                        sprintf(buff, "%d", *(int *)var.ptr);
+                    }
+                    else if (var.type == STRING) 
+                    {
+                        sprintf(buff, "%s", (char *)var.ptr);
+                    }
+                }
+                else
+                {
+                    if (var.type == INT)
+                    {
+                        sprintf(buff, "%d", *(int *)var.ptr);
+                    }
+                    else if (var.type == STRING) 
+                    {
+                        sprintf(buff, "%s", (char *)var.ptr);
+                    }
+                }
+                code = (char *)realloc(code, sizeof(char) * (strlen(code) + strlen(buff) + 1));
+                strcat(code, buff);
+            }
+            system(code);
+        }
+
     }
 }
