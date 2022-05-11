@@ -8,7 +8,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This program built for i386-pc-mingw32
  
 
-# Make veri taban�, Wed May 11 20:26:49 2022
+# Make veri taban�, Thu May 12 00:02:41 2022
  �zerine bas�ld�
 # De�i�kenler
 
@@ -217,7 +217,7 @@ FIREFOX = C:\Program Files\Mozilla Firefox
 # C:\Program Files (x86)\mmix: durumlanamad�.
 # C:\Windows\System32\WindowsPowerShell\v1.0\ (anahtar (key) C:/Windows/System32/WindowsPowerShell/v1.0/, de�i�iklik tarihi (mtime) 1633528183):30 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Windows\System32\Wbem (anahtar (key) C:/Windows/System32/Wbem, de�i�iklik tarihi (mtime) 1647129792):154 dosyalar�,hay�rolanaks�zl�klar.
-# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652281899):16 dosyalar�,hay�rolanaks�zl�klar.
+# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652302313):17 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files\nodejs\ (anahtar (key) C:/Program Files/nodejs/, de�i�iklik tarihi (mtime) 1644956748):13 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common (anahtar (key) C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common, de�i�iklik tarihi (mtime) 1651052077):10 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Users\kabac\AppData\Roaming\npm (anahtar (key) C:/Users/kabac/AppData/Roaming/npm, de�i�iklik tarihi (mtime) 1644956738):2 dosyalar�,hay�rolanaks�zl�klar.
@@ -235,11 +235,12 @@ FIREFOX = C:\Program Files\Mozilla Firefox
 # C:\Program Files\MATLAB\R2021b\bin (anahtar (key) C:/Program Files/MATLAB/R2021b/bin, de�i�iklik tarihi (mtime) 1645457487):14 dosyalar�,hay�rolanaks�zl�klar.
 # C:\ProgramData\DockerDesktop\version-bin: durumlanamad�.
 # C:\Program Files\Git\cmd (anahtar (key) C:/Program Files/Git/cmd, de�i�iklik tarihi (mtime) 1644666878):8 dosyalar�,hay�rolanaks�zl�klar.
-# C:\Windows\system32 (anahtar (key) C:/Windows/system32, de�i�iklik tarihi (mtime) 1652260184):2931 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Windows\system32 (anahtar (key) C:/Windows/system32, de�i�iklik tarihi (mtime) 1652260184):29 
+31 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR (anahtar (key) C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR, de�i�iklik tarihi (mtime) 1639838842):5 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files (x86)\GnuWin32\bin (anahtar (key) C:/Program Files (x86)/GnuWin32/bin, de�i�iklik tarihi (mtime) 1652220823):5 dosyalar�,hay�rolanaks�zl�klar.
 
-# 3567 dosyalar�,hay�r 28 dizinde olanaks�zl�klar.
+# 3568 dosyalar�,hay�r 28 dizinde olanaks�zl�klar.
 
 # �rt�k Kurallar
 
@@ -248,8 +249,7 @@ FIREFOX = C:\Program Files\Mozilla Firefox
 # Dosyalar
 
 all: compile run
-#   
-Komut-sat�r� hedefi.
+#  Komut-sat�r� hedefi.
 #  �rt�k kural ara�t�rmas� yap�lm��t�.
 #  Dosya yok.
 #  Dosya g�ncelle�tirilmi�ti.
@@ -263,18 +263,27 @@ Komut-sat�r� hedefi.
 #  De�i�iklik zaman� hi� kontrol edilmedi.
 #  Dosya g�ncelle�tirilmemi�ti.
 
+machine:
+#  �rt�k kural ara�t�rmas� yap�lmam��t�.
+#  De�i�iklik zaman� hi� kontrol edilmedi.
+#  Dosya g�ncelle�tirilmemi�ti.
+#  �a 
+l��t�rma komutlar� (`makefile'den, sat�r 10):
+	./mycompiler --machine ./test.mc
+	
+
 debug:
 #  �rt�k kural ara�t�rmas� yap�lmam��t�.
 #  De�i�iklik zaman� hi� kontrol edilmedi.
 #  Dosya g�ncelle�tirilmemi�ti.
-#  �al��t�rma komutlar� (`makefile'den, sat�r 14):
+#  �al��t�rma komutlar� (`makefile'den, sat�r 17):
 	gdb --args ./mycompiler --compile ./test.mc
 	
 
 # Bir hedef de�il:
 makefile:
 #  �rt�k kural ara�t�rmas� yap�lm��t�.
-#  Son de�i�iklik tarihi 2022-05-11 15:29:10
+#  Son de�i�iklik tarihi 2022-05-12 00:02:38
 #  Dosya g�ncelle�tirilmi�ti.
 #   Tamamen g�ncellendi.
 # de�i�ken k�mesi hash tablosunun durumu:
@@ -311,7 +320,7 @@ compile:
 # de�i�ken k�mesi hash tablosunun durumu:
 # Y�k=8/32=25%, Rehash=0, �ak��malar=1/10=10%
 #  �al��t�rma komutlar� (`makefile'den, sat�r 4):
-	gcc-9 -g -o mycompiler main.c parser.c compiler.c
+	gcc -g -o mycompiler main.c parser.c compiler.c
 	
 
 run:
@@ -325,15 +334,15 @@ run:
 docker:
 #  �rt�k kural ara�t�rmas� yap�lmam��t�.
 #  De�i�iklik zaman� hi� kontrol edilmedi.
-#  Dosya g�ncelle�tirilmemi�ti.
-#  �al��t�rma komutlar� (`makefile'den, sat�r 10):
+#  Dos 
+ya g�ncelle�tirilmemi�ti.
+#  �al��t�rma komutlar� (`makefile'den, sat�r 13):
 	docker build -t myc ./
 	docker run --interactive myc
 	
 
 # dosyalar�n hash tablosu durumlar�:
-# Y�k=8/1024=1%, Rehash=0, �ak��malar=0/ 
-23=0%
+# Y�k=9/1024=1%, Rehash=0, �ak��malar=0/24=0%
 # VPATH Arama yolu
 
 # `vpath' arama yollar� yok
@@ -344,7 +353,8 @@ docker:
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
+ 
 
-# Wed May 11 20:26:49 2022
+# Thu May 12 00:02:41 2022
  �zerindeki Make veri taban� tamamland�
  

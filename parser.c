@@ -9,9 +9,10 @@ char * read_file(const char* path){
     fseek(fp, 0, SEEK_END);
     int size = ftell(fp);
     fseek(fp, 0, SEEK_SET);
-    char * buffer = (char *)calloc(size + 1, sizeof(char));
+    char * buffer = (char *)calloc(size + 2, sizeof(char));
     fread(buffer, 1, size, fp);
-    buffer[size] = '\0';
+    buffer[size] = ' ';
+    buffer[size + 1] = '\0';
     fclose(fp);
     
     int k = 0;
@@ -23,10 +24,33 @@ char * read_file(const char* path){
     return buffer;
 }
 
+int check_id(Tokenlist tokenlist, char * called, int var_count)
+{
+    int id = -1;
+
+    for(int i = 0; i < tokenlist.token_count; i++)
+    {
+        for (int j = 0; j < tokenlist.tokens[i].var_count; j++)
+        {
+            char * name;
+            if(tokenlist.tokens[i].vars[j].called)
+                name = tokenlist.tokens[i].vars[j].called;
+            else
+                continue;;
+            
+            if (strcmp(name, called) == 0)
+            {
+                return tokenlist.tokens[i].vars[j].id;
+            }
+        }
+    }
+    return id;
+}
+
 Tokenlist parser(const char * file)
 {
     Tokenlist tokenlist;
-    tokenlist.tokens = (Token *)malloc(sizeof(Token));
+    tokenlist.tokens = (Token *)calloc(1, sizeof(Token));
     tokenlist.token_count = 0;
 
     char buff[255];
@@ -75,19 +99,25 @@ Tokenlist parser(const char * file)
                 tokenlist.tokens[tokenlist.token_count - 1].var_count++;
                 tokenlist.tokens[tokenlist.token_count - 1].vars = (Var *)realloc(tokenlist.tokens[tokenlist.token_count - 1].vars, sizeof(Var) * tokenlist.tokens[tokenlist.token_count - 1].var_count);
                 tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].type = STRING;
-                tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].id = var_count;
+                tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].id = -1;
                 tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].called = 0;
                 tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].ptr = (void *)word;
-                var_count++;
                 break;
 
             case VAR_CHAR: ;
                 word = word + 1;
                 tokenlist.tokens[tokenlist.token_count - 1].var_count++;
                 tokenlist.tokens[tokenlist.token_count - 1].vars = (Var *)realloc(tokenlist.tokens[tokenlist.token_count - 1].vars, sizeof(Var) * tokenlist.tokens[tokenlist.token_count - 1].var_count);
-                tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].id = var_count;
+                if (check_id(tokenlist, word, var_count) == -1)
+                {
+                    tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].id = var_count;
+                    var_count++;
+                }
+                else
+                {
+                    tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].id = check_id(tokenlist, word, var_count);
+                }
                 tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].called = (void *)word;
-                var_count++;
                 break;
 
             case NUMBER_CHAR: ;
@@ -107,12 +137,11 @@ Tokenlist parser(const char * file)
                 }
                 tokenlist.tokens[tokenlist.token_count - 1].var_count++;
                 tokenlist.tokens[tokenlist.token_count - 1].vars = (Var *)realloc(tokenlist.tokens[tokenlist.token_count - 1].vars, sizeof(Var) * tokenlist.tokens[tokenlist.token_count - 1].var_count);
-                tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].id = var_count;
+                tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].id = -1;
                 tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].type = INT;
                 tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].ptr = (void *)malloc(sizeof(int *));
                 tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].ptr = number;
                 tokenlist.tokens[tokenlist.token_count - 1].vars[tokenlist.tokens[tokenlist.token_count - 1].var_count - 1].called = 0;
-                var_count++;
                 break;
 
             default: ; // kelime
