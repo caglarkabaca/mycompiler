@@ -132,3 +132,9 @@ Tokenlist parser(const char * file)
 
     return tokenlist;
 }
+
+
+char * to_machine_code(const char* file)
+{
+    return "";
+}

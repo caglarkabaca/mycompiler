@@ -8,7 +8,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This program built for i386-pc-mingw32
  
 
-# Make veri taban�, Wed May 11 15:29:30 2022
+# Make veri taban�, Wed May 11 17:21:49 2022
  �zerine bas�ld�
 # De�i�kenler
 
@@ -59,7 +59,7 @@ PROGRAMDATA = C:\ProgramData
 # �evre
 MINGW = C:\MinGW\bin
 # �evre
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-e86c9a5c-ac55-43ca-bcec-6d5eb77c299c-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9788ff20-84cf-4b7d-a3f4-c819e862c14e-sock
 # �evre
 VSCODE_CWD = C:\Users\kabac\AppData\Local\Programs\Microsoft VS Code
 # �evre
@@ -77,14 +77,13 @@ VSCODE_LOG_STACK = false
 # �evre
 NUMBER_OF_PROCESSORS = 4
 # �evre
-ELECTRON_RUN_AS_NODE  
-= 1
+ELECTRON_RUN_AS_NODE = 1
 # �ntan�ml�
 .FEATURES := target-specific order-only second-expansion else-if archives
 # otomatik
 %F = $(notdir $%)
 # �evre
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9068_IPVVFVNQNUPANPOD
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_2472_VOIHCBMPDKALSDXB
 # �evre
 VSCODE_PIPE_LOGGING = true
 # �evre
@@ -168,8 +167,6 @@ SYSTEMROOT = C:\Windows
 # �evre
 APPDATA = C:\Users\kabac\AppData\Roaming
 # �evre
-__COMPAT_LAYER = DetectorsAppHealth
-# �evre
 TEMP = C:\Users\kabac\AppData\Local\Temp
 # �evre
 COMSPEC = C:\Windows\system32\cmd.exe
@@ -200,11 +197,11 @@ PROCESSOR_LEVEL = 6
 # �evre
 FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # �evre
-VSCODE_PID = 9068
+VSCODE_PID = 2472
 # �evre
 FIREFOX = C:\Program Files\Mozilla Firefox
 # de�i�ken k�mesi hash tablosunun durumu:
-# Y�k=95/1024=9%, Rehash=0, �ak��malar=10/117=9%
+# Y�k=94/1024=9%, Rehash=0, �ak��malar=10/116=9%
 
 # Pattern-specific Variable Values
 
@@ -219,7 +216,7 @@ FIREFOX = C:\Program Files\Mozilla Firefox
 # C:\Program Files (x86)\mmix: durumlanamad�.
 # C:\Windows\System32\WindowsPowerShell\v1.0\ (anahtar (key) C:/Windows/System32/WindowsPowerShell/v1.0/, de�i�iklik tarihi (mtime) 1633528183):30 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Windows\System32\Wbem (anahtar (key) C:/Windows/System32/Wbem, de�i�iklik tarihi (mtime) 1647129792):154 dosyalar�,hay�rolanaks�zl�klar.
-# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652272140):16 dosyalar�,hay�rolanaks�zl�klar.
+# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652274690):16 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files\nodejs\ (anahtar (key) C:/Program Files/nodejs/, de�i�iklik tarihi (mtime) 1644956748):13 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common (anahtar (key) C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common, de�i�iklik tarihi (mtime) 1651052077):10 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Users\kabac\AppData\Roaming\npm (anahtar (key) C:/Users/kabac/AppData/Roaming/npm, de�i�iklik tarihi (mtime) 1644956738):2 dosyalar�,hay�rolanaks�zl�klar.
@@ -245,8 +242,7 @@ FIREFOX = C:\Program Files\Mozilla Firefox
 
 # �rt�k Kurallar
 
-# �rt�k  
-kural yok.
+# �rt�k kural yok.
 
 # Dosyalar
 
@@ -313,8 +309,7 @@ compile:
 # de�i�ken k�mesi hash tablosunun durumu:
 # Y�k=8/32=25%, Rehash=0, �ak��malar=1/10=10%
 #  �al��t�rma komutlar� (`makefile'den, sat�r 4):
-	gcc-9 -g -o my 
-compiler main.c parser.c compiler.c
+	gcc-9 -g -o mycompiler main.c parser.c compiler.c
 	
 
 run:
@@ -335,7 +330,8 @@ docker:
 	
 
 # dosyalar�n hash tablosu durumlar�:
-# Y�k=8/1024=1%, Rehash=0, �ak��malar=0/23=0%
+# Y�k=8/1024=1%, Rehash=0, �ak��malar=0/ 
+23=0%
 # VPATH Arama yolu
 
 # `vpath' arama yollar� yok
@@ -347,6 +343,6 @@ docker:
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Wed May 11 15:29:30 2022
+# Wed May 11 17:21:49 2022
  �zerindeki Make veri taban� tamamland�
  

@@ -7,4 +7,6 @@ char * read_file(const char* path);
 
 Tokenlist parser(const char* file);
 
+char * to_machine_code(const char* file);
+
 #endif
