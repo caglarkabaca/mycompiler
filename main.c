@@ -60,6 +60,15 @@ int main(int argc, char** argv)
         printf("-- machine code --\n");
         char * machine_code = to_machine_code(file, tokenlist);
         printf("%s", machine_code);
+
+        char * name_file = (char *)calloc(strlen(argv[2] + 2), sizeof(char));
+        strcpy(name_file, argv[2]);
+        name_file[strlen(name_file) - 1] = 'a';
+        name_file[strlen(name_file)] = 'c';
+        name_file[strlen(name_file) + 1] = '\0';
+        FILE *fp = fopen(name_file, "w");
+        fputs(machine_code, fp);
+        fclose(fp);
     }
     return 0;
 }

@@ -240,7 +240,18 @@ char * to_machine_code(const char* file, Tokenlist tokenlist)
                     strcat(machine_code, printbin32(*(int *)var.ptr));
                     strcat(machine_code, " ");
                     continue;
-                } // STRING EKLICEN
+                }
+                else if (var.type == STRING)
+                {
+                    int size = 8 * strlen((char *)var.ptr) + 2;
+                    machine_code = (char *)realloc(machine_code, (strlen(machine_code) + size) * sizeof(char));
+                    for (int i = 0; i < strlen((char *)var.ptr); i++)
+                    {
+                        strcat(machine_code, printbin(((char *)var.ptr)[i]));
+                    }
+                    strcat(machine_code, " ");
+                    continue;
+                }
             }
             else 
             {
