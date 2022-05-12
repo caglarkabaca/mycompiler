@@ -6,7 +6,7 @@ compile:
 run:
 	./mycompiler --compile ./test.mc
 
-machine:
+machine: compile
 	./mycompiler --machine ./test.mc
 
 docker:

@@ -58,6 +58,8 @@ int main(int argc, char** argv)
         print_tokenlist(tokenlist);
 
         printf("-- machine code --\n");
+        char * machine_code = to_machine_code(file, tokenlist);
+        printf("%s", machine_code);
     }
     return 0;
 }

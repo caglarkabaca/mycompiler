@@ -9,6 +9,24 @@
 #define INT 1
 #define STRING 2
 
+// opcodes
+#define HLT 255
+#define PRINT 1
+#define PRINTLN 2
+#define SET 3
+#define ADD 4
+#define SUB 5
+#define MUL 6
+#define DIV 7
+#define GETINT 8
+#define GETTXT 9
+#define PUSH 10
+#define SYSTEM 11
+#define SETPOS 12
+#define GOTO 13
+#define GOGT 14
+#define GOLT 15
+
 
 // eğer bir var değişkeninin calledı varse kullanıcı tanımlamıştır
 struct Var

@@ -1,5 +1,7 @@
 GETINT $number
 SET $old $number
+SET $res #59
+SET $res #7
 SET $res #1
 SETPOS $LOOP
 MUL $res $res $number

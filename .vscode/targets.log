@@ -8,7 +8,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This program built for i386-pc-mingw32
  
 
-# Make veri taban�, Thu May 12 00:02:41 2022
+# Make veri taban�, Thu May 12 10:44:05 2022
  �zerine bas�ld�
 # De�i�kenler
 
@@ -60,7 +60,7 @@ PROGRAMDATA = C:\ProgramData
 # �evre
 MINGW = C:\MinGW\bin
 # �evre
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-100e4f26-9ce9-4681-b6f4-5a3b6439d655-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9cb3e3aa-6047-4038-b925-a74654882ca4-sock
 # �evre
 VSCODE_CWD = C:\Users\kabac\AppData\Local\Programs\Microsoft VS Code
 # �evre
@@ -84,7 +84,7 @@ ELECTRON_RUN_AS_NODE = 1
 # otomatik
 %F = $(notdir $%)
 # �evre
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_2196_ABZPENRFMQCOCTCH
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_8172_SVJHGPYFXHYQUFIH
 # �evre
 VSCODE_PIPE_LOGGING = true
 # �evre
@@ -198,7 +198,7 @@ PROCESSOR_LEVEL = 6
 # �evre
 FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # �evre
-VSCODE_PID = 2196
+VSCODE_PID = 8172
 # �evre
 FIREFOX = C:\Program Files\Mozilla Firefox
 # de�i�ken k�mesi hash tablosunun durumu:
@@ -217,7 +217,7 @@ FIREFOX = C:\Program Files\Mozilla Firefox
 # C:\Program Files (x86)\mmix: durumlanamad�.
 # C:\Windows\System32\WindowsPowerShell\v1.0\ (anahtar (key) C:/Windows/System32/WindowsPowerShell/v1.0/, de�i�iklik tarihi (mtime) 1633528183):30 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Windows\System32\Wbem (anahtar (key) C:/Windows/System32/Wbem, de�i�iklik tarihi (mtime) 1647129792):154 dosyalar�,hay�rolanaks�zl�klar.
-# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652302313):17 dosyalar�,hay�rolanaks�zl�klar.
+# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652341441):17 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files\nodejs\ (anahtar (key) C:/Program Files/nodejs/, de�i�iklik tarihi (mtime) 1644956748):13 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common (anahtar (key) C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common, de�i�iklik tarihi (mtime) 1651052077):10 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Users\kabac\AppData\Roaming\npm (anahtar (key) C:/Users/kabac/AppData/Roaming/npm, de�i�iklik tarihi (mtime) 1644956738):2 dosyalar�,hay�rolanaks�zl�klar.
@@ -263,12 +263,11 @@ all: compile run
 #  De�i�iklik zaman� hi� kontrol edilmedi.
 #  Dosya g�ncelle�tirilmemi�ti.
 
-machine:
+machine: compile
 #  �rt�k kural ara�t�rmas� yap�lmam��t�.
 #  De�i�iklik zaman� hi� kontrol edilmedi.
 #  Dosya g�ncelle�tirilmemi�ti.
-#  �a 
-l��t�rma komutlar� (`makefile'den, sat�r 10):
+#  �al��t�rma komutlar� (`makefile'den, sat�r 10):
 	./mycompiler --machine ./test.mc
 	
 
@@ -283,7 +282,7 @@ debug:
 # Bir hedef de�il:
 makefile:
 #  �rt�k kural ara�t�rmas� yap�lm��t�.
-#  Son de�i�iklik tarihi 2022-05-12 00:02:38
+#  Son de�i�iklik tarihi 2022-05-12 10:43:58
 #  Dosya g�ncelle�tirilmi�ti.
 #   Tamamen g�ncellendi.
 # de�i�ken k�mesi hash tablosunun durumu:
@@ -333,16 +332,16 @@ run:
 
 docker:
 #  �rt�k kural ara�t�rmas� yap�lmam��t�.
-#  De�i�iklik zaman� hi� kontrol edilmedi.
-#  Dos 
-ya g�ncelle�tirilmemi�ti.
+#  De�i�iklik zaman� hi� kontrol edilmedi 
+.
+#  Dosya g�ncelle�tirilmemi�ti.
 #  �al��t�rma komutlar� (`makefile'den, sat�r 13):
 	docker build -t myc ./
 	docker run --interactive myc
 	
 
 # dosyalar�n hash tablosu durumlar�:
-# Y�k=9/1024=1%, Rehash=0, �ak��malar=0/24=0%
+# Y�k=9/1024=1%, Rehash=0, �ak��malar=0/25=0%
 # VPATH Arama yolu
 
 # `vpath' arama yollar� yok
@@ -353,8 +352,7 @@ ya g�ncelle�tirilmemi�ti.
 # # of strcache buffers: 1
 # strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
- 
 
-# Thu May 12 00:02:41 2022
+# Thu May 12 10:44:05 2022
  �zerindeki Make veri taban� tamamland�
  

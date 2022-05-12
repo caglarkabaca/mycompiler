@@ -162,8 +162,95 @@ Tokenlist parser(const char * file)
     return tokenlist;
 }
 
-
-char * to_machine_code(const char* file)
+char * printbin(unsigned char val)
 {
-    return "";
+    char * binar = (char *)calloc(9, sizeof(char));
+    char * a = (char *)calloc(2, sizeof(char));
+    for(unsigned int i = 0x80; i; i >>= 1)
+    {
+        a[0] = val & i ? '1' : '0';
+        strcat(binar, a);
+    }
+    return binar;
+}
+
+char * printbin32(int val)
+{
+    char * nums = (char *)calloc(33, sizeof(char));
+    //printf("%d ", val);
+    int i = 0;
+    while (val != 0)
+    {
+        //printf("%c ", (val % 2) + '0');
+        nums[i] = (val % 2) + '0';
+        i++;
+        val = val / 2;
+    }
+    //printf("> %s\n", nums);
+    char temp;
+    for (i = 0; i < strlen(nums)/2; i++)  
+    {  
+        temp = nums[i];  
+        nums[i] = nums[strlen(nums) - i - 1];  
+        nums[strlen(nums) - i - 1] = temp;  
+    }
+    if (strlen(nums) == 0)
+        nums = "0";
+    return nums;
+}
+
+unsigned char token_to_opcode(char * name)
+{
+    if (strcmp("HLT", name) == 0) return HLT;
+    if (strcmp("PRINT", name) == 0) return PRINT;
+    if (strcmp("PRINTLN", name) == 0) return PRINTLN;
+    if (strcmp("SET", name) == 0) return SET;
+    if (strcmp("ADD", name) == 0) return ADD;
+    if (strcmp("SUB", name) == 0) return SUB;
+    if (strcmp("MUL", name) == 0) return MUL;
+    if (strcmp("DIV", name) == 0) return DIV;
+    if (strcmp("GETINT", name) == 0) return GETINT;
+    if (strcmp("GETTXT", name) == 0) return GETTXT;
+    if (strcmp("PUSH", name) == 0) return PUSH;
+    if (strcmp("SYSTEM", name) == 0) return SYSTEM;
+    if (strcmp("SETPOS", name) == 0) return SETPOS;
+    if (strcmp("GOTO", name) == 0) return GOTO;
+    if (strcmp("GOGT", name) == 0) return GOGT;
+    if (strcmp("GOLT", name) == 0) return GOLT;
+}
+
+char * to_machine_code(const char* file, Tokenlist tokenlist)
+{
+    char * machine_code = (char *)calloc(1, sizeof(char));
+    for (int i = 0; i < tokenlist.token_count; i++)
+    {
+        machine_code = (char *)realloc(machine_code, (strlen(machine_code) + 11) * sizeof(char));
+        strcat(machine_code, printbin(token_to_opcode(tokenlist.tokens[i].name)));
+        strcat(machine_code, " ");
+
+        for (int j = 0; j < tokenlist.tokens[i].var_count; j++)
+        {
+            Var var = tokenlist.tokens[i].vars[j];
+
+            if (var.id == -1)
+            {
+                if (var.type == INT)
+                {
+                    machine_code = (char *)realloc(machine_code, (strlen(machine_code) + 34) * sizeof(char));
+                    strcat(machine_code, printbin32(*(int *)var.ptr));
+                    strcat(machine_code, " ");
+                    continue;
+                } // STRING EKLICEN
+            }
+            else 
+            {
+                machine_code = (char *)realloc(machine_code, (strlen(machine_code) + 34) * sizeof(char));
+                strcat(machine_code, printbin(var.id));
+                strcat(machine_code, " ");
+            }
+        }
+
+        strcat(machine_code, "\n");
+    }
+    return machine_code;
 }
