@@ -36,15 +36,15 @@ void print_tokenlist(Tokenlist tokenlist)
 
 int main(int argc, char** argv)
 {
-    printf("... main running ...\n");
+    //printf("... main running ...\n");
     if (argc >= 3 && (strcmp(argv[1], "--compile") == 0))
     {
         const char * file = read_file(argv[2]);
        
         Tokenlist tokenlist = parser(file);
-        print_tokenlist(tokenlist);
+        //print_tokenlist(tokenlist);
 
-        printf("-- output --\n");
+        //printf("-- output --\n");
         compile(tokenlist);
 
         free(tokenlist.tokens);
@@ -55,11 +55,11 @@ int main(int argc, char** argv)
         const char * file = read_file(argv[2]);
 
         Tokenlist tokenlist = parser(file);
-        print_tokenlist(tokenlist);
+        //print_tokenlist(tokenlist);
 
-        printf("-- machine code --\n");
+        //printf("-- machine code --\n");
         char * machine_code = to_machine_code(file, tokenlist);
-        printf("%s", machine_code);
+        //printf("%s", machine_code);
 
         char * name_file = (char *)calloc(strlen(argv[2] + 2), sizeof(char));
         strcpy(name_file, argv[2]);
@@ -69,6 +69,12 @@ int main(int argc, char** argv)
         FILE *fp = fopen(name_file, "w");
         fputs(machine_code, fp);
         fclose(fp);
+
+        free(tokenlist.tokens);
+    }
+    else if(strcmp(argv[1], "--help") == 0)
+    {
+        printf("./mycompiler [options] file\nOptions:\n\t--compile\t\tum zu compielen und auszuführen\n\t--machine\t\tum zu Machinen-Code zu konvertieren\n\t--help\t\t\tum dieses Menu zu zeigen\n");
     }
     return 0;
 }

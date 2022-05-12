@@ -1,4 +1,4 @@
-all: compile run
+all: help
 
 compile:
 	gcc -g -o mycompiler main.c parser.c compiler.c
@@ -9,9 +9,8 @@ run:
 machine: compile
 	./mycompiler --machine ./test.mc
 
-docker:
-	docker build -t myc ./
-	docker run --interactive myc
+help: compile
+	./mycompiler --help
 
 debug:
 	gdb --args ./mycompiler --compile ./test.mc
