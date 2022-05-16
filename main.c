@@ -77,13 +77,20 @@ int main(int argc, char** argv)
         const char * machinefile = read_file(argv[2]);
         char * file = from_machine_code(machinefile);
         //printf("%s\n", file);
-        Tokenlist tokenlist = parser(file);
+        FILE *fp = fopen("_temp_.mc", "w");
+        fputs(file, fp);
+        fclose(fp);
+
+        const char * newfile = read_file("_temp_.mc");
+        remove("_temp_.mc");
+
+        Tokenlist tokenlist = parser(newfile);
         compile(tokenlist);
         free(tokenlist.tokens);
     }
     else if(strcmp(argv[1], "--help") == 0)
     {
-        printf("./mycompiler [options] file\nOptions:\n\t--file\t\tum zu kompilieren und auszuführen\n\t--machine\t\tum in Maschienencode zu konvertieren\n\t--machinefile\t\t\tum das Machinecode auszuführen\n\t--help\t\t\tum dieses Menu zu zeigen\n");
+        printf("./mycompiler [options] file\nOptions:\n\t--file\t\t\tum zu kompilieren und auszuführen\n\t--machine\t\tum in Maschienencode zu konvertieren\n\t--machinefile\t\tum das Machinecode auszuführen\n\t--help\t\t\tum dieses Menu zu zeigen\n");
     }
     return 0;
 }

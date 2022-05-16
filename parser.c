@@ -293,7 +293,7 @@ char * to_machine_code(Tokenlist tokenlist)
                 {
                     int size = 8 * strlen((char *)var.ptr) + 4;
                     machine_code = (char *)realloc(machine_code, (strlen(machine_code) + size) * sizeof(char));
-                    strcat(machine_code, "1");
+                    strcat(machine_code, "0");
                     for (int i = 0; i < strlen((char *)var.ptr); i++)
                     {
                         strcat(machine_code, printbin(((char *)var.ptr)[i]));
@@ -319,7 +319,7 @@ char * to_machine_code(Tokenlist tokenlist)
 char * from_machine_code(const char* file)
 {
     
-    char buff[255];
+    char buff[1024];
     int buff_index = 0;
     int file_index = 0;
 
@@ -347,7 +347,7 @@ char * from_machine_code(const char* file)
                 word[i] = buff[i];
         }
 
-        word[strlen(buff)] = '\0'; 
+        word[strlen(buff)] = '\0';
 
         if (strlen(word) < 1)
             continue;
@@ -368,29 +368,34 @@ char * from_machine_code(const char* file)
             strcat(new_file, " $");
             strcat(new_file, _word);
         }
-        else if (strlen(word) >= 8 && (strlen(word) - 1) % 8 == 0 && word[0] == '1') // BUNLAR STRINGLER BAŞINDAKI 1 İ SİLİP STRING OKUYACAK
+        else if (strlen(word) >= 8 && (strlen(word) - 1) % 8 == 0 && word[0] == '0') // BUNLAR STRINGLER BAŞINDAKI 0 İ SİLİP STRING OKUYACAK
         { // string okuma lazım
-            char * _word = (char *)calloc((strlen(word) / 3 ) + 1, sizeof(char));
             word = word + 1;
+            //printf("%s -> %d\n", word, strlen(word));
+            char * _word = (char *)calloc((strlen(word) / 8 ) + 1, sizeof(char));
 
-            char buff[9];
-            for (int i = 0; i < strlen(word) / 3; i++)
+            char nchar[9];
+            char x[2];
+            for (int i = 0; i < strlen(word) / 8; i++)
             {
-                buff[0] = word[0 + 8*i];
-                buff[1] = word[1 + 8*i];
-                buff[2] = word[2 + 8*i];
-                buff[3] = word[3 + 8*i];
-                buff[4] = word[4 + 8*i];
-                buff[5] = word[5 + 8*i];
-                buff[6] = word[6 + 8*i];
-                buff[7] = word[7 + 8*i];
+                memset(nchar, 0, 9);
+                memset(x, 0, 2);
+                nchar[0] = word[0 + 8*i];
+                nchar[1] = word[1 + 8*i];
+                nchar[2] = word[2 + 8*i];
+                nchar[3] = word[3 + 8*i];
+                nchar[4] = word[4 + 8*i];
+                nchar[5] = word[5 + 8*i];
+                nchar[6] = word[6 + 8*i];
+                nchar[7] = word[7 + 8*i];
 
-                char x[2];
-                x[0] = bintoint(buff);
+                x[0] = bintoint(nchar);
+                //printf("n:%s\n", nchar);
                 strcat(_word, x);
+                //printf("%s -> %d\n", _word, strlen(_word));
             }
 
-            new_file = realloc(new_file, (strlen(new_file) + strlen(word) + 5) * sizeof(char));
+            new_file = (char *)realloc(new_file, (strlen(new_file) + strlen(_word) + 5) * sizeof(char));
             strcat(new_file, " \"");
             strcat(new_file, _word);
             strcat(new_file, "\"");
