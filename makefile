@@ -1,7 +1,7 @@
 all: help
 
 compile:
-	gcc -g -o mycompiler main.c parser.c compiler.c
+	gcc -g -o mycompiler main.c parser.c compiler.c -lm
 
 run:
 	./mycompiler --compile ./test.mc

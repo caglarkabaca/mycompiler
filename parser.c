@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h>
 
 char * read_file(const char* path){
     FILE * fp = fopen(path, "r");
@@ -199,6 +200,17 @@ char * printbin32(int val)
     return nums;
 }
 
+int bintoint(char * opcode)
+{
+    int number = 0;
+    for(int i = strlen(opcode); i > -1; i--)
+    {
+        if (opcode[i] == '1')
+            number += pow(2, strlen(opcode) - i - 1);
+    }
+    return number;
+}
+
 unsigned char token_to_opcode(char * name)
 {
     if (strcmp("HLT", name) == 0) return HLT;
@@ -219,7 +231,29 @@ unsigned char token_to_opcode(char * name)
     if (strcmp("GOLT", name) == 0) return GOLT;
 }
 
-char * to_machine_code(const char* file, Tokenlist tokenlist)
+char * opcode_to_string(int opcode)
+{
+    char * _opcode = (char *)calloc(255, sizeof(char));
+    if (opcode == HLT) strcpy(_opcode, "HLT");
+    if (opcode == PRINT) strcpy(_opcode, "PRINT");
+    if (opcode == PRINTLN) strcpy(_opcode, "PRINTLN");
+    if (opcode == SET) strcpy(_opcode, "SET");
+    if (opcode == ADD) strcpy(_opcode, "ADD");
+    if (opcode == SUB) strcpy(_opcode, "SUB");
+    if (opcode == MUL) strcpy(_opcode, "MUL");
+    if (opcode == DIV) strcpy(_opcode, "DIV");
+    if (opcode == GETINT) strcpy(_opcode, "GETINT");
+    if (opcode == GETTXT) strcpy(_opcode, "GETTXT");
+    if (opcode == PUSH) strcpy(_opcode, "PUSH");
+    if (opcode == SYSTEM) strcpy(_opcode, "SYSTEM");
+    if (opcode == SETPOS) strcpy(_opcode, "SETPOS");
+    if (opcode == GOTO) strcpy(_opcode, "GOTO");
+    if (opcode == GOGT) strcpy(_opcode, "GOGT");
+    if (opcode == GOLT) strcpy(_opcode, "GOLT");
+    return _opcode;
+}
+
+char * to_machine_code(Tokenlist tokenlist)
 {
     char * machine_code = (char *)calloc(1, sizeof(char));
     for (int i = 0; i < tokenlist.token_count; i++)
@@ -243,8 +277,9 @@ char * to_machine_code(const char* file, Tokenlist tokenlist)
                 }
                 else if (var.type == STRING)
                 {
-                    int size = 8 * strlen((char *)var.ptr) + 2;
+                    int size = 8 * strlen((char *)var.ptr) + 3;
                     machine_code = (char *)realloc(machine_code, (strlen(machine_code) + size) * sizeof(char));
+                    strcat(machine_code, "1");
                     for (int i = 0; i < strlen((char *)var.ptr); i++)
                     {
                         strcat(machine_code, printbin(((char *)var.ptr)[i]));
@@ -264,4 +299,9 @@ char * to_machine_code(const char* file, Tokenlist tokenlist)
         strcat(machine_code, "\n");
     }
     return machine_code;
+}
+
+char * from_machine_code(const char* file)
+{
+    
 }

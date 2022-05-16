@@ -37,7 +37,7 @@ void print_tokenlist(Tokenlist tokenlist)
 int main(int argc, char** argv)
 {
     //printf("... main running ...\n");
-    if (argc >= 3 && (strcmp(argv[1], "--compile") == 0))
+    if (argc >= 3 && (strcmp(argv[1], "--file") == 0))
     {
         const char * file = read_file(argv[2]);
        
@@ -58,7 +58,7 @@ int main(int argc, char** argv)
         //print_tokenlist(tokenlist);
 
         //printf("-- machine code --\n");
-        char * machine_code = to_machine_code(file, tokenlist);
+        char * machine_code = to_machine_code(tokenlist);
         //printf("%s", machine_code);
 
         char * name_file = (char *)calloc(strlen(argv[2] + 2), sizeof(char));
@@ -72,9 +72,13 @@ int main(int argc, char** argv)
 
         free(tokenlist.tokens);
     }
+    else if(argc >= 3 && (strcmp(argv[1], "--machinefile") == 0))
+    {
+
+    }
     else if(strcmp(argv[1], "--help") == 0)
     {
-        printf("./mycompiler [options] file\nOptions:\n\t--compile\t\tum zu compielen und auszuführen\n\t--machine\t\tum zu Machinen-Code zu konvertieren\n\t--help\t\t\tum dieses Menu zu zeigen\n");
+        printf("./mycompiler [options] file\nOptions:\n\t--file\t\tum zu kompilieren und auszuführen\n\t--machine\t\tum in Maschienencode zu konvertieren\n\t--machinefile\t\t\tum das Machinecode auszuführen\n\t--help\t\t\tum dieses Menu zu zeigen\n");
     }
     return 0;
 }

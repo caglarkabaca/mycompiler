@@ -8,7 +8,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This program built for i386-pc-mingw32
  
 
-# Make veri taban�, Thu May 12 15:47:48 2022
+# Make veri taban�, Mon May 16 13:59:25 2022
  �zerine bas�ld�
 # De�i�kenler
 
@@ -60,7 +60,7 @@ PROGRAMDATA = C:\ProgramData
 # �evre
 MINGW = C:\MinGW\bin
 # �evre
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9c5efa49-9986-4793-af6c-6023beb52c99-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9bb2c5d8-6ae2-44a0-bcb6-04a9a5e5ccb9-sock
 # �evre
 VSCODE_CWD = C:\Users\kabac\AppData\Local\Programs\Microsoft VS Code
 # �evre
@@ -84,7 +84,7 @@ ELECTRON_RUN_AS_NODE = 1
 # otomatik
 %F = $(notdir $%)
 # �evre
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_13932_ZZVEMBVGSOOQKPNZ
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_18388_MEIMWGCAPGYAZYXR
 # �evre
 VSCODE_PIPE_LOGGING = true
 # �evre
@@ -193,12 +193,13 @@ USERDOMAIN_ROAMINGPROFILE = DESKTOP-TETFJCT
 MAKELEVEL := 0
 # �evre
 LANG = C
-# �evre
+# 
+ �evre
 PROCESSOR_LEVEL = 6
 # �evre
 FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # �evre
-VSCODE_PID = 13932
+VSCODE_PID = 18388
 # �evre
 FIREFOX = C:\Program Files\Mozilla Firefox
 # de�i�ken k�mesi hash tablosunun durumu:
@@ -212,14 +213,17 @@ FIREFOX = C:\Program Files\Mozilla Firefox
 
 # : durumlanamad�.
 # C:\Program Files\heroku\bin (anahtar (key) C:/Program Files/heroku/bin, de�i�iklik tarihi (mtime) 1647989065):4 dosyalar�,hay�rolanaks�zl�klar.
-# C:\Program Files\Common Files\Oracle\Java\javapath (anahtar (key) C:/Program Files/Common Files/Oracle/Java/javapath, de�i�iklik tarihi (mtime) 1643279099):6 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Pr 
+ogram Files\Common Files\Oracle\Java\javapath (anahtar (key) C:/Program Files/Common Files/Oracle/Java/javapath, de�i�iklik tarihi (mtime) 1643279099):6 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files\Docker\Docker\resources\bin (anahtar (key) C:/Program Files/Docker/Docker/resources/bin, de�i�iklik tarihi (mtime) 1652223710):13 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files (x86)\mmix: durumlanamad�.
-# C:\Windows\System32\WindowsPowerShell\v1.0\ (anahtar (key) C:/Windows/System32/WindowsPowerShell/v1.0/, de�i�iklik tarihi (mtime) 1633528183):30 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Windows\System32\WindowsPowerShell\v1.0\ (anahtar (key) C:/Windows/System32/WindowsPowerShell/v 
+1.0/, de�i�iklik tarihi (mtime) 1633528183):30 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Windows\System32\Wbem (anahtar (key) C:/Windows/System32/Wbem, de�i�iklik tarihi (mtime) 1647129792):154 dosyalar�,hay�rolanaks�zl�klar.
-# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652359656):18 dosyalar�,hay�rolanaks�zl�klar.
+# . (anahtar (key) c:/Users/kabac/Desktop/mycompiler, de�i�iklik tarihi (mtime) 1652698711):14 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files\nodejs\ (anahtar (key) C:/Program Files/nodejs/, de�i�iklik tarihi (mtime) 1644956748):13 dosyalar�,hay�rolanaks�zl�klar.
-# C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common (anahtar (key) C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common, de�i�iklik tarihi (mtime) 1651052077):10 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Program Files (x86 
+)\NVIDIA Corporation\PhysX\Common (anahtar (key) C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common, de�i�iklik tarihi (mtime) 1651052077):10 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Users\kabac\AppData\Roaming\npm (anahtar (key) C:/Users/kabac/AppData/Roaming/npm, de�i�iklik tarihi (mtime) 1644956738):2 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files\dotnet\ (anahtar (key) C:/Program Files/dotnet/, de�i�iklik tarihi (mtime) 1643112640):8 dosyalar�,hay�rolanaks�zl�klar.
 # C:\MinGW\bin (anahtar (key) C:/MinGW/bin, de�i�iklik tarihi (mtime) 1646170801):144 dosyalar�,hay�rolanaks�zl�klar.
@@ -236,11 +240,11 @@ i (mtime) 1643629148):5 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files\MATLAB\R2021b\bin (anahtar (key) C:/Program Files/MATLAB/R2021b/bin, de�i�iklik tarihi (mtime) 1645457487):14 dosyalar�,hay�rolanaks�zl�klar.
 # C:\ProgramData\DockerDesktop\version-bin: durumlanamad�.
 # C:\Program Files\Git\cmd (anahtar (key) C:/Program Files/Git/cmd, de�i�iklik tarihi (mtime) 1644666878):8 dosyalar�,hay�rolanaks�zl�klar.
-# C:\Windows\system32 (anahtar (key) C:/Windows/system32, de�i�iklik tarihi (mtime) 1652260184):2931 dosyalar�,hay�rolanaks�zl�klar.
+# C:\Windows\system32 (anahtar (key) C:/Windows/system32, de�i�iklik tarihi (mtime) 1652436934):2931 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR (anahtar (key) C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR, de�i�iklik tarihi (mtime) 1639838842):5 dosyalar�,hay�rolanaks�zl�klar.
 # C:\Program Files (x86)\GnuWin32\bin (anahtar (key) C:/Program Files (x86)/GnuWin32/bin, de�i�iklik tarihi (mtime) 1652220823):5 dosyalar�,hay�rolanaks�zl�klar.
 
-# 3569 dosyalar�,hay�r 28 dizinde olanaks�zl�klar.
+# 3565 dosyalar�,hay�r 28 dizinde olanaks�zl�klar.
 
 # �rt�k Kurallar
 
@@ -249,7 +253,8 @@ i (mtime) 1643629148):5 dosyalar�,hay�rolanaks�zl�klar.
 # Dosyalar
 
 all: help
-#  Komut-sat�r� hedefi.
+#  Komut 
+-sat�r� hedefi.
 #  �rt�k kural ara�t�rmas� yap�lm��t�.
 #  Dosya yok.
 #  Dosya g�ncelle�tirilmi�ti.
@@ -267,7 +272,8 @@ machine: compile
 #  �rt�k kural ara�t�rmas� yap�lmam��t�.
 #  De�i�iklik zaman� hi� kontrol edilmedi.
 #  Dosya g�ncelle�tirilmemi�ti.
-#  �al��t�rma komutlar� (`makefile'den, sat�r 10):
+#  
+ �al��t�rma komutlar� (`makefile'den, sat�r 10):
 	./mycompiler --machine ./test.mc
 	
 
@@ -282,7 +288,7 @@ debug:
 # Bir hedef de�il:
 makefile:
 #  �rt�k kural ara�t�rmas� yap�lm��t�.
-#  Son de�i�iklik tarihi 2022-05-12 15:47:33
+#  Son de�i�iklik tarihi 2022-05-16 13:58:29
 #  Dosya g�ncelle�tirilmi�ti.
 #   Tamamen g�ncellendi.
 # de�i�ken k�mesi hash tablosunun durumu:
@@ -330,9 +336,8 @@ compile:
 # de�i�ken k�mesi hash tablosunun durumu:
 # Y�k=8/32=25%, Rehash=0, �ak��malar=1/10=10%
 #  �al��t�rma komutlar� (`makefile'den, sat�r 4):
-	gcc -g -o mycompiler main.c parser.c compiler.c
-	 
-
+	gcc -g -o mycompiler main.c parser.c compiler.c -lm
+	
 
 run:
 #  �rt�k kural ara�t�rmas� yap�lmam��t�.
@@ -352,9 +357,10 @@ run:
 
 # # of strings in strcache: 1
 # # of strcache buffers: 1
-# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache size: total = 4096 / max = 4096 / min = 4096 /  
+avg = 4096
 # strcache free: total = 4087 / max = 4087 / min = 4087 / avg = 4087
 
-# Thu May 12 15:47:48 2022
+# Mon May 16 13:59:25 2022
  �zerindeki Make veri taban� tamamland�
  
