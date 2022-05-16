@@ -10,7 +10,7 @@
 #define STRING 2
 
 // opcodes
-#define HLT 255
+#define HLT 127
 #define PRINT 1
 #define PRINTLN 2
 #define SET 3

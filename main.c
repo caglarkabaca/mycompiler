@@ -74,7 +74,12 @@ int main(int argc, char** argv)
     }
     else if(argc >= 3 && (strcmp(argv[1], "--machinefile") == 0))
     {
-
+        const char * machinefile = read_file(argv[2]);
+        char * file = from_machine_code(machinefile);
+        //printf("%s\n", file);
+        Tokenlist tokenlist = parser(file);
+        compile(tokenlist);
+        free(tokenlist.tokens);
     }
     else if(strcmp(argv[1], "--help") == 0)
     {

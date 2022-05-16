@@ -175,6 +175,18 @@ char * printbin(unsigned char val)
     return binar;
 }
 
+char * printbinvar(unsigned char val)
+{
+    char * binar = (char *)calloc(9, sizeof(char));
+    char * a = (char *)calloc(2, sizeof(char));
+    for(unsigned int i = 64; i; i >>= 1)
+    {
+        a[0] = val & i ? '1' : '0';
+        strcat(binar, a);
+    }
+    return binar;
+}
+
 char * printbin32(int val)
 {
     char * nums = (char *)calloc(33, sizeof(char));
@@ -291,7 +303,7 @@ char * to_machine_code(Tokenlist tokenlist)
             else 
             {
                 machine_code = (char *)realloc(machine_code, (strlen(machine_code) + 34) * sizeof(char));
-                strcat(machine_code, printbin(var.id));
+                strcat(machine_code, printbinvar(var.id));
                 strcat(machine_code, " ");
             }
         }
@@ -304,4 +316,93 @@ char * to_machine_code(Tokenlist tokenlist)
 char * from_machine_code(const char* file)
 {
     
+    char buff[255];
+    int buff_index = 0;
+    int file_index = 0;
+
+    char * new_file = (char *)calloc(1, sizeof(char));
+
+    while (file[file_index] != '\0')
+    {
+        memset(buff, 0, buff_index);
+        buff_index = 0;
+        
+        while(file[file_index] != ' ' && file[file_index] != '\n' && file[file_index] != '\0')
+        {
+            buff[buff_index] = file[file_index];
+            file_index++;
+            buff_index++;
+        }
+        
+        char * word = (char *)calloc(strlen(buff) + 1, sizeof(char));
+        file_index++;
+        
+
+        for (int i = 0; i < strlen(buff); i++)
+        {
+            if (buff[i] == '1' || buff[i] == '0')
+                word[i] = buff[i];
+        }
+
+        word[strlen(buff)] = '\0'; 
+
+        if (strlen(word) < 1)
+            continue;
+        //printf("%s -> %d\n", word, strlen(word));
+
+        if ((strlen(word) == 8) && word[0] == '0') // BUNLAR KOMUTLAR HLT,PRINT GIBI
+        {
+            char * _word = opcode_to_string(bintoint(word));
+            new_file = realloc(new_file, (strlen(new_file) + strlen(_word) + 4) * sizeof(char));
+            strcat(new_file, "\n");
+            strcat(new_file, _word);
+        }
+        else if (strlen(word) == 7 && word[0] == '0') // BUNLAR DEĞİŞKENLER BİLEREK 7 OLMASI İÇİN AYARLANDILAR
+        {
+            char _word[255];
+            sprintf(_word, "%d", bintoint(word));
+            new_file = realloc(new_file, (strlen(new_file) + strlen(_word) + 4) * sizeof(char));
+            strcat(new_file, " $");
+            strcat(new_file, _word);
+        }
+        else if (strlen(word) >= 8 && word[0] == '1') // BUNLAR STRINGLER BAŞINDAKI 1 İ SİLİP STRING OKUYACAK
+        { // string okuma lazım
+            char * _word = (char *)calloc((strlen(word) / 3 ) + 1, sizeof(char));
+            word = word + 1;
+
+            char buff[9];
+            for (int i = 0; i < strlen(word) / 3; i++)
+            {
+                buff[0] = word[0 + 8*i];
+                buff[1] = word[1 + 8*i];
+                buff[2] = word[2 + 8*i];
+                buff[3] = word[3 + 8*i];
+                buff[4] = word[4 + 8*i];
+                buff[5] = word[5 + 8*i];
+                buff[6] = word[6 + 8*i];
+                buff[7] = word[7 + 8*i];
+
+                char x[2];
+                x[0] = bintoint(buff);
+                strcat(_word, x);
+            }
+
+            new_file = realloc(new_file, (strlen(new_file) + strlen(word) + 5) * sizeof(char));
+            strcat(new_file, " \"");
+            strcat(new_file, _word);
+            strcat(new_file, "\"");
+        }
+        else // KALANLAR İSE NORMAL TAM SAYILAR
+        { 
+            char _word[255];
+            sprintf(_word, "%d", bintoint(word));
+            new_file = realloc(new_file, (strlen(new_file) + strlen(_word) + 5) * sizeof(char));
+            strcat(new_file, " #");
+            strcat(new_file, _word);
+        }
+
+    }
+
+
+    return new_file;
 }
