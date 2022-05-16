@@ -7,6 +7,8 @@
 
 char * read_file(const char* path){
     FILE * fp = fopen(path, "r");
+    if (fp == NULL)
+        printf("dosya açılamadı\n");
     fseek(fp, 0, SEEK_END);
     int size = ftell(fp);
     fseek(fp, 0, SEEK_SET);
@@ -270,7 +272,7 @@ char * to_machine_code(Tokenlist tokenlist)
     char * machine_code = (char *)calloc(1, sizeof(char));
     for (int i = 0; i < tokenlist.token_count; i++)
     {
-        machine_code = (char *)realloc(machine_code, (strlen(machine_code) + 11) * sizeof(char));
+        machine_code = (char *)realloc(machine_code, (strlen(machine_code) + 14) * sizeof(char));
         strcat(machine_code, printbin(token_to_opcode(tokenlist.tokens[i].name)));
         strcat(machine_code, " ");
 
@@ -282,14 +284,14 @@ char * to_machine_code(Tokenlist tokenlist)
             {
                 if (var.type == INT)
                 {
-                    machine_code = (char *)realloc(machine_code, (strlen(machine_code) + 34) * sizeof(char));
+                    machine_code = (char *)realloc(machine_code, (strlen(machine_code) + 35) * sizeof(char));
                     strcat(machine_code, printbin32(*(int *)var.ptr));
                     strcat(machine_code, " ");
                     continue;
                 }
                 else if (var.type == STRING)
                 {
-                    int size = 8 * strlen((char *)var.ptr) + 3;
+                    int size = 8 * strlen((char *)var.ptr) + 4;
                     machine_code = (char *)realloc(machine_code, (strlen(machine_code) + size) * sizeof(char));
                     strcat(machine_code, "1");
                     for (int i = 0; i < strlen((char *)var.ptr); i++)
@@ -302,7 +304,7 @@ char * to_machine_code(Tokenlist tokenlist)
             }
             else 
             {
-                machine_code = (char *)realloc(machine_code, (strlen(machine_code) + 34) * sizeof(char));
+                machine_code = (char *)realloc(machine_code, (strlen(machine_code) + 35) * sizeof(char));
                 strcat(machine_code, printbinvar(var.id));
                 strcat(machine_code, " ");
             }
@@ -310,6 +312,7 @@ char * to_machine_code(Tokenlist tokenlist)
 
         strcat(machine_code, "\n");
     }
+    machine_code[strlen(machine_code)] = '\0';
     return machine_code;
 }
 
@@ -365,7 +368,7 @@ char * from_machine_code(const char* file)
             strcat(new_file, " $");
             strcat(new_file, _word);
         }
-        else if (strlen(word) >= 8 && word[0] == '1') // BUNLAR STRINGLER BAŞINDAKI 1 İ SİLİP STRING OKUYACAK
+        else if (strlen(word) >= 8 && (strlen(word) - 1) % 8 == 0 && word[0] == '1') // BUNLAR STRINGLER BAŞINDAKI 1 İ SİLİP STRING OKUYACAK
         { // string okuma lazım
             char * _word = (char *)calloc((strlen(word) / 3 ) + 1, sizeof(char));
             word = word + 1;

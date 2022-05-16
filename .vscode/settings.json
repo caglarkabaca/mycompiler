@@ -1,6 +1,8 @@
 {
     "files.associations": {
-        "structs.h": "c"
+        "*.txt": "pip-requirements",
+        "structs.h": "c",
+        "cstdio": "c"
     },
     "C_Cpp.errorSquiggles": "Disabled"
 }
