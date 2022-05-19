@@ -56,7 +56,7 @@ Tokenlist parser(const char * file)
     tokenlist.tokens = (Token *)calloc(1, sizeof(Token));
     tokenlist.token_count = 0;
 
-    char buff[255];
+    char buff[1024];
 
     int buff_index = 0;
     int file_index = 0;
