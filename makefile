@@ -1,16 +1,16 @@
 all: help
 
 compile:
-	gcc -g -o mycompiler main.c parser.c compiler.c -lm
+	gcc -g -o uCompiler main.c parser.c compiler.c -lm
 
 run:
-	./mycompiler --compile ./test.mc
+	./uCompiler --compile ./test.mc
 
 machine: compile
-	./mycompiler --machine ./test.mc
+	./uCompiler --machine ./test.mc
 
 help: compile
-	./mycompiler --help
+	./uCompiler --help
 
 debug:
-	gdb --args ./mycompiler --compile ./test.mc
+	gdb --args ./uCompiler --compile ./test.mc

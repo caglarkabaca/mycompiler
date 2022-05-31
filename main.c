@@ -90,7 +90,7 @@ int main(int argc, char** argv)
     }
     else if(strcmp(argv[1], "--help") == 0)
     {
-        printf("./mycompiler [options] file\nOptions:\n\t--file\t\t\tum zu kompilieren und auszuführen\n\t--machine\t\tum in Maschienencode zu konvertieren\n\t--machinefile\t\tum das Machinecode auszuführen\n\t--help\t\t\tum dieses Menu zu zeigen\n");
+        printf("./uCompiler [options] file\nOptions:\n\t--file\t\t\tum zu kompilieren und auszuführen\n\t--machine\t\tum in Maschienencode zu konvertieren\n\t--machinefile\t\tum das Machinecode auszuführen\n\t--help\t\t\tum dieses Menu zu zeigen\n");
     }
     return 0;
 }

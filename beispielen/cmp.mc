@@ -1,4 +1,4 @@
-PRINTLN "Lütfden sırayla 2 sayı giriniz: "
+PRINTLN "Bitte geben Sie zwei Nummer ein: "
 GETINT $a
 GETINT $b
 GOGT $ab $a $b
